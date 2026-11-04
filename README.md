@@ -67,21 +67,20 @@
             border-bottom: 2px solid var(--accent-color);
         }
 
-        /* メインビジュアル（一番最初に見えるセクション） */
+        /* メインビジュアル（ご提示いただいた写真を背景に設定） */
         .hero {
-            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('IMG_0979_2.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('IMG_0979_3.jpg') center/cover no-repeat;
             color: var(--white);
             text-align: center;
             padding: 120px 20px;
         }
         
-        /* 動きと色変化をつけて興味を惹きつけるタイトル */
+        /* 動的グラデーション文字 */
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 15px;
             font-weight: 900;
             letter-spacing: 0.05em;
-            /* 文字色をグラデーションにして動かす演出 */
             background: linear-gradient(45deg, #ffffff, #fde047, #f97316, #ffffff);
             background-size: 300% 300%;
             -webkit-background-clip: text;
@@ -159,7 +158,30 @@
             font-size: 1.05rem;
         }
 
-        /* 選手・主催者カードグリッド */
+        /* 主催者カード＆サイズ調整専用スタイル */
+        .organizer-container {
+            display: flex;
+            justify-content: center;
+        }
+        .organizer-card {
+            max-width: 350px; /* カード全体の最大幅 */
+            width: 100%;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--white);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        /* 主催者の顔写真サイズ調整 */
+        .organizer-card img {
+            width: 100%;
+            height: 280px; /* 写真の高さ（大きさを変えたい場合はここを調整してください） */
+            object-fit: cover;
+            object-position: top; /* 写真の上部（顔中心）に合わせる */
+        }
+
+        /* 一般カードグリッド（OB選手用） */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -179,7 +201,7 @@
         }
         .card img {
             width: 100%;
-            height: 250px;
+            height: 220px;
             object-fit: cover;
         }
         .card-content {
@@ -195,7 +217,7 @@
             font-size: 0.95rem;
         }
 
-        /* 応募ボタン（CTAセクション） */
+        /* 応募ボタン */
         .btn-apply {
             display: inline-block;
             background-color: var(--accent-color);
@@ -256,6 +278,9 @@
                 margin: 20px 10px;
                 padding: 25px 15px;
             }
+            .organizer-card img {
+                height: 240px; /* スマホ画面での顔写真の高さ */
+            }
         }
     </style>
 </head>
@@ -277,7 +302,7 @@
         </div>
     </header>
 
-    <!-- メインビジュアル（一番最初に見える写真とタイトル） -->
+    <!-- メインビジュアル（ご指定の画像 IMG_0979_3.jpg を背景に指定） -->
     <div class="hero">
         <h1>伊賀白鳳高校陸上部OB ランニングイベント2027</h1>
         <p>すべては感動のために</p>
@@ -311,11 +336,11 @@
         </table>
     </section>
 
-    <!-- 2. 主催者紹介 -->
+    <!-- 2. 主催者紹介（写真サイズを整えたカード） -->
     <section id="organizer">
         <h2>主催者紹介</h2>
-        <div class="card-grid">
-            <div class="card">
+        <div class="organizer-container">
+            <div class="organizer-card">
                 <img src="https://github.com/user-attachments/assets/c37e14f4-1a98-4d36-8695-bf669c77403d" alt="鈴木千翔">
                 <div class="card-content">
                     <h3>鈴木 千翔（すずき かずと）</h3>
