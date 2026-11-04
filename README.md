@@ -67,27 +67,29 @@
             border-bottom: 2px solid var(--accent-color);
         }
 
-        /* メインビジュアル（自動背景スライダー） */
+        /* メインビジュアル（自動背景スライダー：写真が綺麗に収まるよう調整） */
         .hero-slider {
             position: relative;
             width: 100%;
-            height: 70vh;
-            min-height: 480px;
+            height: 65vh;
+            min-height: 450px;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            background-color: #0f172a;
         }
 
-        /* 背景スライド画像の設定 */
+        /* 背景スライド画像の設定（containで全体を小さくきれいに収める） */
         .slide {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-size: cover;
+            background-size: contain;
             background-position: center;
+            background-repeat: no-repeat;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
             z-index: 1;
@@ -96,18 +98,18 @@
             opacity: 1;
         }
 
-        /* 写真の暗さを均一にし、文字を見やすくするオーバーレイ */
+        /* 写真の上下にうっすら暗いレイヤーを敷き、文字を読みやすくする */
         .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65));
+            background: rgba(15, 23, 42, 0.4);
             z-index: 2;
         }
 
-        /* ヒーローコンテンツ（中央テキスト） */
+        /* キャッチコピー（中央テキスト） */
         .hero-content {
             position: relative;
             z-index: 3;
@@ -118,7 +120,7 @@
 
         /* グラデーション動的タイトル */
         .hero-content h1 {
-            font-size: 2.6rem;
+            font-size: 2.5rem;
             margin-bottom: 15px;
             font-weight: 900;
             letter-spacing: 0.05em;
@@ -329,14 +331,14 @@
                 padding: 4px 6px;
             }
             .hero-slider {
-                height: 55vh;
-                min-height: 380px;
+                height: 50vh;
+                min-height: 350px;
             }
             .hero-content h1 {
-                font-size: 1.7rem;
+                font-size: 1.6rem;
             }
             .hero-content p {
-                font-size: 1.1rem;
+                font-size: 1.05rem;
             }
             section {
                 margin: 20px 10px;
@@ -366,22 +368,18 @@
         </div>
     </header>
 
-    <!-- 15秒で切替表示される自動スライダーセクション -->
+    <!-- 15秒で切替表示される自動スライダーセクション（画像サイズ調整済み） -->
     <div class="hero-slider">
-        <!-- 背景画像4枚 -->
-        <div class="slide active" style="background-image: url('<img width="1479" height="1109" alt="IMG_1676" src="https://github.com/user-attachments/assets/bd058cdc-9978-4ec1-afab-8caebe05635c" />
-');"></div>
-        <div class="slide" style="background-image: url('<img width="1118" height="611" alt="IMG_0979" src="https://github.com/user-attachments/assets/6b486f94-cb59-4365-bced-ab18cbd034c6" />
-');"></div>
-        <div class="slide" style="background-image: url('<img width="1070" height="821" alt="IMG_1017" src="https://github.com/user-attachments/assets/06540e3d-c217-4e20-88fc-b14f46b5483c" />
-');"></div>
-        <div class="slide" style="background-image: url('<img width="1116" height="931" alt="IMG_1015" src="https://github.com/user-attachments/assets/f8d02b5f-be84-48ac-a684-87f5b850df4a" />
-');"></div>
+        <!-- 背景画像4枚（ご指定のGitHubアタッチメントURLを使用） -->
+        <div class="slide active" style="background-image: url('https://github.com/user-attachments/assets/bd058cdc-9978-4ec1-afab-8caebe05635c');"></div>
+        <div class="slide" style="background-image: url('https://github.com/user-attachments/assets/6b486f94-cb59-4365-bced-ab18cbd034c6');"></div>
+        <div class="slide" style="background-image: url('https://github.com/user-attachments/assets/06540e3d-c217-4e20-88fc-b14f46b5483c');"></div>
+        <div class="slide" style="background-image: url('https://github.com/user-attachments/assets/f8d02b5f-be84-48ac-a684-87f5b850df4a');"></div>
         
-        <!-- オーバーレイ（文字視認性確保用） -->
+        <!-- オーバーレイ -->
         <div class="hero-overlay"></div>
 
-        <!-- キャッチコピー -->
+        <!-- キャッチコピー（ご指定のタイトル・サブタイトル） -->
         <div class="hero-content">
             <h1>伊賀白鳳高校陸上部OB ランニングイベント2027</h1>
             <p>すべては感動のために</p>
@@ -508,7 +506,7 @@
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
         const dots = document.querySelectorAll('.dot');
-        const intervalTime = 15000; // 15秒 (15000ミリ秒)
+        const intervalTime = 15000; // 15秒
         let slideInterval;
 
         function showSlide(index) {
@@ -536,7 +534,6 @@
             slideInterval = setInterval(nextSlide, intervalTime);
         }
 
-        // 自動スライド開始
         slideInterval = setInterval(nextSlide, intervalTime);
     </script>
 </body>
