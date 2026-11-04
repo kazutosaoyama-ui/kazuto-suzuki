@@ -11,7 +11,8 @@
 </body>
 </html>
 <!DOCTYPE html>
-
+<!DOCTYPE html>
+<html lang="ja">
 <!DOCTYPE html>
 <html lang="ja">
 <head>
