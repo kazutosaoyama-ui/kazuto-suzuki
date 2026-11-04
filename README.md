@@ -31,7 +31,8 @@
             <div class="card">
                 <!--<img width="1045" height="1567" alt="kazuto" src="https://github.com/user-attachments/assets/5d64ec41-1448-48af-83a5-a4e18c96ac9b" />
 -->
-                <img src="IMG_9645.jpg" alt="鈴木千翔">
+                <img src="<img width="1045" height="1567" alt="kazuto" src="https://github.com/user-attachments/assets/c37e14f4-1a98-4d36-8695-bf669c77403d" />
+" alt="鈴木千翔">
                 <div class="card-content">
                     <h3>鈴木 千翔（すずき かずと）</h3>
                     <p><strong>青山学院大学 陸上競技部</strong></p>
@@ -105,7 +106,3 @@
 
 </body>
 </html>
-
-
-
-    
