@@ -371,7 +371,8 @@
     <!-- 15秒で切替表示される自動スライダーセクション（画像サイズ調整済み） -->
     <div class="hero-slider">
         <!-- 背景画像4枚（ご指定のGitHubアタッチメントURLを使用） -->
-        <div class="slide active" style="background-image: url('https://github.com/user-attachments/assets/bd058cdc-9978-4ec1-afab-8caebe05635c');"></div>
+        <div class="slide active" style="background-image: url('<img width="1479" height="1109" alt="IMG_1676" src="https://github.com/user-attachments/assets/564ffe06-72aa-40ae-8750-304e9c96dc2a" />
+');"></div>
         <div class="slide" style="background-image: url('https://github.com/user-attachments/assets/6b486f94-cb59-4365-bced-ab18cbd034c6');"></div>
         <div class="slide" style="background-image: url('https://github.com/user-attachments/assets/06540e3d-c217-4e20-88fc-b14f46b5483c');"></div>
         <div class="slide" style="background-image: url('https://github.com/user-attachments/assets/f8d02b5f-be84-48ac-a684-87f5b850df4a');"></div>
