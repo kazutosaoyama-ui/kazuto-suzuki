@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>鈴木千翔 & 伊賀白鳳高校陸上部23年卒OB ランニング教室 公式HP</title>
+    <title>伊賀白鳳高校陸上部OB ランニングイベント2027</title>
     <style>
         /* 全体の基本設定 */
         :root {
-            --primary-color: #0f172a; /* 高級感のあるダークネイビー */
-            --accent-color: #d97706;  /* アクセントカラー（ゴールド・オレンジ） */
-            --bg-color: #f8fafc;      /* 背景のライトグレー */
-            --text-color: #334155;    /* 本文の文字色 */
+            --primary-color: #0f172a;
+            --accent-color: #f59e0b;
+            --bg-color: #f8fafc;
+            --text-color: #334155;
             --white: #ffffff;
         }
 
@@ -67,24 +67,42 @@
             border-bottom: 2px solid var(--accent-color);
         }
 
-        /* メインビジュアル（FV）- 添付いただいた集合写真に変更 */
+        /* メインビジュアル（一番最初に見えるセクション） */
         .hero {
-            background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)), url('IMG_0979.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('IMG_0979_2.jpg') center/cover no-repeat;
             color: var(--white);
             text-align: center;
-            padding: 110px 20px;
+            padding: 120px 20px;
         }
+        
+        /* 動きと色変化をつけて興味を惹きつけるタイトル */
         .hero h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             margin-bottom: 15px;
+            font-weight: 900;
             letter-spacing: 0.05em;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            /* 文字色をグラデーションにして動かす演出 */
+            background: linear-gradient(45deg, #ffffff, #fde047, #f97316, #ffffff);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shineText 5s ease infinite;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
+
+        @keyframes shineText {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         .hero p {
-            font-size: 1.2rem;
-            color: #f1f5f9;
-            font-weight: 500;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            font-size: 1.4rem;
+            color: #fde047;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+            margin-top: 0;
         }
 
         /* 各セクション共通 */
@@ -181,18 +199,19 @@
         .btn-apply {
             display: inline-block;
             background-color: var(--accent-color);
-            color: var(--white);
-            padding: 16px 45px;
-            font-size: 1.15rem;
-            font-weight: bold;
+            color: var(--primary-color);
+            padding: 18px 50px;
+            font-size: 1.25rem;
+            font-weight: 900;
             text-decoration: none;
             border-radius: 50px;
             transition: background 0.3s, transform 0.2s;
-            box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3);
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
         }
         .btn-apply:hover {
-            background-color: #b45309;
-            transform: scale(1.02);
+            background-color: #d97706;
+            transform: scale(1.03);
+            color: var(--white);
         }
         .apply-container {
             text-align: center;
@@ -209,7 +228,7 @@
             font-size: 0.85rem;
         }
 
-        /* レスポンシブ対応（スマホ表示） */
+        /* スマホ対応 */
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -225,17 +244,17 @@
                 padding: 4px 6px;
             }
             .hero {
-                padding: 70px 15px;
+                padding: 80px 15px;
             }
             .hero h1 {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
             }
             section {
                 margin: 20px 10px;
                 padding: 25px 15px;
-            }
-            table th {
-                width: 30%;
             }
         }
     </style>
@@ -258,10 +277,10 @@
         </div>
     </header>
 
-    <!-- メインビジュアル（最上部） -->
+    <!-- メインビジュアル（一番最初に見える写真とタイトル） -->
     <div class="hero">
-        <h1>次世代ランナーへ、魂の継承を。</h1>
-        <p>2026年3月7日(土) ＠地元・三重県</p>
+        <h1>伊賀白鳳高校陸上部OB ランニングイベント2027</h1>
+        <p>すべては感動のために</p>
     </div>
 
     <!-- 1. イベント概要 -->
@@ -368,7 +387,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 23年卒 伊賀白鳳高校陸上部OB ランニングイベント実行委員会</p>
+        <p>&copy; 2027 23年卒 伊賀白鳳高校陸上部OB ランニングイベント実行委員会</p>
     </footer>
 
 </body>
