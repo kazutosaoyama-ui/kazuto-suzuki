@@ -1,48 +1,4 @@
-<section id="about">
-        <h2>イベント概要</h2>
-        <p>地元三重県への恩返しと、次世代ランナーの育成を目的に、伊賀白鳳高校陸上部23年卒OBによるランニング教室を開催いたします。走りの基本から大会に向けたアドバイスまで、現役大学生ランナーが直接指導します！</p>
-        <table>
-            <tr>
-                <th>日時</th>
-                <td>3月7日(土) 9:00〜12:00（受付開始 8:30〜）</td>
-            </tr>
-            <tr>
-                <th>会場</th>
-                <td>三重県内 陸上競技場（詳細な場所が入ります）</td>
-            </tr>
-            <tr>
-                <th>対象</th>
-                <td>小・中学生、高校生、市民ランナーの皆様</td>
-            </tr>
-            <tr>
-                <th>持ち物</th>
-                <td>走れる服装、ランニングシューズ、飲み物、タオル</td>
-            </tr>
-            <tr>
-                <th>参加費</th>
-                <td>無料（または〇〇円）</td>
-            </tr>
-        </table>
-    </section>
-
-    <section id="organizer">
-        <h2>主催者紹介</h2>
-        <div class="card-grid">
-            <div class="card">
-                <!--<img width="1045" height="1567" alt="kazuto" src="https://github.com/user-attachments/assets/5d64ec41-1448-48af-83a5-a4e18c96ac9b" />
--->
-                <img src="<img width="1045" height="1567" alt="kazuto" src="https://github.com/user-attachments/assets/c37e14f4-1a98-4d36-8695-bf669c77403d" />
-" alt="鈴木千翔">
-                <div class="card-content">
-                    <h3>鈴木 千翔（すずき かずと）</h3>
-                    <p><strong>青山学院大学 陸上競技部</strong></p>
-                    <p>伊賀白鳳高校 23年卒。地元三重県の皆様と一緒に走れることを楽しみにしています！</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="schedule">
+  <section id="schedule">
         <h2>イベント当日の流れ</h2>
         <ul class="timeline">
             <li>
