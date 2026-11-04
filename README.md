@@ -473,9 +473,14 @@
             <div class="card">
                 <img src="IMG_9443.jpg" alt="OB選手1">
                 <div class="card-content">
-                    <h3>選手のお名前 A</h3>
-                    <p><strong>〇〇大学 陸上競技部</strong></p>
+                    <h3>倉本　　A</h3>
+                    <p><strong>東洋大学 陸上競技部所属</strong></p>
                     <p>自己ベスト：5000m 〇分〇秒</p>
+                    <p>　　　　　：10000m 〇分〇秒</p>
+                    <p>　　　　　：ハーフマラソン 〇分〇秒</p>
+
+                    <p>　　　　　：第58回全日本大学駅伝　6区 〇分〇秒　区間〇位</p>
+                    
                 </div>
             </div>
             <div class="card">
