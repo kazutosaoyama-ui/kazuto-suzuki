@@ -2,6 +2,8 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <img width="1118" height="611" alt="IMG_0979" src="https://github.com/user-attachments/assets/9f2d21ab-2ab2-44b4-95a9-5b82c1d1840a" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>伊賀白鳳高校陸上部OB ランニングイベント2027</title>
     <style>
