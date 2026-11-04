@@ -369,7 +369,7 @@
     <!-- 15秒で切替表示される自動スライダーセクション -->
     <div class="hero-slider">
         <!-- 背景画像4枚 -->
-        <div class="slide active" style="background-image: url('IMG_0979_4.jpg');"></div>
+        <div class="slide active" style="background-image: url('IMG_1676.JPG');"></div>
         <div class="slide" style="background-image: url('IMG_1015.jpg');"></div>
         <div class="slide" style="background-image: url('IMG_1017.jpg');"></div>
         <div class="slide" style="background-image: url('IMG_1676.jpg');"></div>
