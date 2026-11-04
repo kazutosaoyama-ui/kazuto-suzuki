@@ -2,8 +2,6 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <img width="1118" height="611" alt="IMG_0979" src="https://github.com/user-attachments/assets/9f2d21ab-2ab2-44b4-95a9-5b82c1d1840a" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>伊賀白鳳高校陸上部OB ランニングイベント2027</title>
     <style>
@@ -69,17 +67,58 @@
             border-bottom: 2px solid var(--accent-color);
         }
 
-        /* メインビジュアル（ご提示いただいた写真を背景に設定） */
-        .hero {
-            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('IMG_0979_3.jpg') center/cover no-repeat;
-            color: var(--white);
-            text-align: center;
-            padding: 120px 20px;
+        /* メインビジュアル（自動背景スライダー） */
+        .hero-slider {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            min-height: 480px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        
-        /* 動的グラデーション文字 */
-        .hero h1 {
-            font-size: 2.5rem;
+
+        /* 背景スライド画像の設定 */
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            z-index: 1;
+        }
+        .slide.active {
+            opacity: 1;
+        }
+
+        /* 写真の暗さを均一にし、文字を見やすくするオーバーレイ */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65));
+            z-index: 2;
+        }
+
+        /* ヒーローコンテンツ（中央テキスト） */
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 0 20px;
+            max-width: 900px;
+        }
+
+        /* グラデーション動的タイトル */
+        .hero-content h1 {
+            font-size: 2.6rem;
             margin-bottom: 15px;
             font-weight: 900;
             letter-spacing: 0.05em;
@@ -97,13 +136,36 @@
             100% { background-position: 0% 50%; }
         }
 
-        .hero p {
+        .hero-content p {
             font-size: 1.4rem;
             color: #fde047;
             font-weight: bold;
             letter-spacing: 0.1em;
             text-shadow: 0 2px 5px rgba(0,0,0,0.8);
             margin-top: 0;
+        }
+
+        /* スライド用インジケーター（ドット） */
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 4;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .dot.active {
+            background-color: var(--accent-color);
+            transform: scale(1.2);
         }
 
         /* 各セクション共通 */
@@ -160,13 +222,13 @@
             font-size: 1.05rem;
         }
 
-        /* 主催者カード＆サイズ調整専用スタイル */
+        /* 主催者カード */
         .organizer-container {
             display: flex;
             justify-content: center;
         }
         .organizer-card {
-            max-width: 350px; /* カード全体の最大幅 */
+            max-width: 350px;
             width: 100%;
             border: 1px solid #e2e8f0;
             border-radius: 12px;
@@ -175,12 +237,11 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             text-align: center;
         }
-        /* 主催者の顔写真サイズ調整 */
         .organizer-card img {
             width: 100%;
-            height: 280px; /* 写真の高さ（大きさを変えたい場合はここを調整してください） */
+            height: 280px;
             object-fit: cover;
-            object-position: top; /* 写真の上部（顔中心）に合わせる */
+            object-position: top;
         }
 
         /* 一般カードグリッド（OB選手用） */
@@ -267,13 +328,14 @@
                 font-size: 0.85rem;
                 padding: 4px 6px;
             }
-            .hero {
-                padding: 80px 15px;
+            .hero-slider {
+                height: 55vh;
+                min-height: 380px;
             }
-            .hero h1 {
-                font-size: 1.8rem;
+            .hero-content h1 {
+                font-size: 1.7rem;
             }
-            .hero p {
+            .hero-content p {
                 font-size: 1.1rem;
             }
             section {
@@ -281,7 +343,7 @@
                 padding: 25px 15px;
             }
             .organizer-card img {
-                height: 240px; /* スマホ画面での顔写真の高さ */
+                height: 240px;
             }
         }
     </style>
@@ -304,10 +366,30 @@
         </div>
     </header>
 
-    <!-- メインビジュアル（ご指定の画像 IMG_0979_3.jpg を背景に指定） -->
-    <div class="hero">
-        <h1>伊賀白鳳高校陸上部OB ランニングイベント2027</h1>
-        <p>すべては感動のために</p>
+    <!-- 15秒で切替表示される自動スライダーセクション -->
+    <div class="hero-slider">
+        <!-- 背景画像4枚 -->
+        <div class="slide active" style="background-image: url('IMG_0979_4.jpg');"></div>
+        <div class="slide" style="background-image: url('IMG_1015.jpg');"></div>
+        <div class="slide" style="background-image: url('IMG_1017.jpg');"></div>
+        <div class="slide" style="background-image: url('IMG_1676.jpg');"></div>
+        
+        <!-- オーバーレイ（文字視認性確保用） -->
+        <div class="hero-overlay"></div>
+
+        <!-- キャッチコピー -->
+        <div class="hero-content">
+            <h1>伊賀白鳳高校陸上部OB ランニングイベント2027</h1>
+            <p>すべては感動のために</p>
+        </div>
+
+        <!-- インジケータードット -->
+        <div class="slider-dots">
+            <span class="dot active" onclick="setSlide(0)"></span>
+            <span class="dot" onclick="setSlide(1)"></span>
+            <span class="dot" onclick="setSlide(2)"></span>
+            <span class="dot" onclick="setSlide(3)"></span>
+        </div>
     </div>
 
     <!-- 1. イベント概要 -->
@@ -338,7 +420,7 @@
         </table>
     </section>
 
-    <!-- 2. 主催者紹介（写真サイズを整えたカード） -->
+    <!-- 2. 主催者紹介 -->
     <section id="organizer">
         <h2>主催者紹介</h2>
         <div class="organizer-container">
@@ -417,5 +499,41 @@
         <p>&copy; 2027 23年卒 伊賀白鳳高校陸上部OB ランニングイベント実行委員会</p>
     </footer>
 
+    <!-- 15秒自動切り替えJavaScript処理 -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const intervalTime = 15000; // 15秒 (15000ミリ秒)
+        let slideInterval;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                dots[i].classList.remove('active');
+            });
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            let next = (currentSlide + 1) % slides.length;
+            showSlide(next);
+        }
+
+        function setSlide(index) {
+            showSlide(index);
+            resetTimer();
+        }
+
+        function resetTimer() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, intervalTime);
+        }
+
+        // 自動スライド開始
+        slideInterval = setInterval(nextSlide, intervalTime);
+    </script>
 </body>
 </html>
