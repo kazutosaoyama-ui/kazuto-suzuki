@@ -665,7 +665,7 @@
             <!-- 東洋大学・倉本選手 -->
             <div class="card toyo">
                 <div class="card-header-info">
-                    <h3>倉本 晃羽（くらもと あきは）</h3>
+                    <h3>倉本 晃羽（くらもと こうは）</h3>
                     <div class="belong">東洋大学 総合情報学部 3年</div>
                 </div>
                 <div class="card-content">
@@ -705,7 +705,7 @@
             <!-- 駿河台大学・古橋選手 -->
             <div class="card surugadai">
                 <div class="card-header-info">
-                    <h3>古橋 希翁（ふるはし まれお）</h3>
+                    <h3>古橋 希翁（ふるはし きお）</h3>
                     <div class="belong">駿河台大学 スポーツ科学部 4年</div>
                 </div>
                 <div class="card-content">
