@@ -12,6 +12,12 @@
             --bg-color: #f8fafc;
             --text-color: #334155;
             --white: #ffffff;
+            
+            /* 大学カラーの定義 */
+            --toyo-color: #1e3a8a;     /* 東洋大：鉄紺 */
+            --komazawa-color: #990000; /* 駒澤大：エンジ */
+            --surugadai-color: #0284c7;/* 駿河台大：ブルー */
+            --meiji-color: #5b21b6;    /* 明治大：紫紺 */
         }
 
         html {
@@ -253,7 +259,7 @@
             object-position: top;
         }
 
-        /* OB選手カードグリッド */
+        /* OB選手カードグリッド & 大学別カラースタイル */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
@@ -272,8 +278,15 @@
             transform: translateY(-4px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.08);
         }
+
+        /* 大学ごとのカラーアクセント（左のボーダー） */
+        .card.toyo { border-top: 5px solid var(--toyo-color); }
+        .card.komazawa { border-top: 5px solid var(--komazawa-color); }
+        .card.surugadai { border-top: 5px solid var(--surugadai-color); }
+        .card.meiji { border-top: 5px solid var(--meiji-color); }
+
         .card-header-info {
-            background-color: #f1f5f9;
+            background-color: #f8fafc;
             padding: 15px 20px;
             border-bottom: 1px solid #e2e8f0;
         }
@@ -282,12 +295,13 @@
             color: var(--primary-color);
             font-size: 1.25rem;
         }
-        .card-header-info .belong {
-            font-size: 0.95rem;
-            color: var(--accent-color);
-            font-weight: bold;
-            margin-top: 4px;
-        }
+
+        /* 大学別の所属文字カラー */
+        .card.toyo .belong { color: var(--toyo-color); font-size: 0.95rem; font-weight: bold; margin-top: 4px; }
+        .card.komazawa .belong { color: var(--komazawa-color); font-size: 0.95rem; font-weight: bold; margin-top: 4px; }
+        .card.surugadai .belong { color: var(--surugadai-color); font-size: 0.95rem; font-weight: bold; margin-top: 4px; }
+        .card.meiji .belong { color: var(--meiji-color); font-size: 0.95rem; font-weight: bold; margin-top: 4px; }
+
         .card-content {
             padding: 20px;
         }
@@ -297,8 +311,13 @@
             border-radius: 6px;
             font-size: 0.9rem;
             margin-bottom: 15px;
-            border-left: 3px solid var(--accent-color);
+            border-left: 3px solid #cbd5e1;
         }
+        .card.toyo .pb-list { border-left-color: var(--toyo-color); }
+        .card.komazawa .pb-list { border-left-color: var(--komazawa-color); }
+        .card.surugadai .pb-list { border-left-color: var(--surugadai-color); }
+        .card.meiji .pb-list { border-left-color: var(--meiji-color); }
+
         .pb-list strong {
             color: var(--primary-color);
         }
@@ -560,15 +579,15 @@
         </ul>
     </section>
 
-    <!-- 5. 参加OB選手紹介 -->
+    <!-- 5. 参加OB選手紹介（大学別カラー適用） -->
     <section id="athletes">
         <h2>参加OB選手紹介</h2>
         <p>伊賀白鳳高校23年卒の豪華メンバーが集結します！現役の大学陸上界で活躍する選手たちから直接アドバイスを受けることができます。</p>
         
         <div class="card-grid">
             
-            <!-- 1. 倉本 晃羽 選手 -->
-            <div class="card">
+            <!-- 1. 東洋大学・倉本選手（鉄紺） -->
+            <div class="card toyo">
                 <div class="card-header-info">
                     <h3>倉本 晃羽（くらもと あきは）</h3>
                     <div class="belong">東洋大学 総合情報学部 3年</div>
@@ -587,8 +606,8 @@
                 </div>
             </div>
 
-            <!-- 2. 島子 公佑 選手 -->
-            <div class="card">
+            <!-- 2. 駒澤大学・島子選手（エンジ） -->
+            <div class="card komazawa">
                 <div class="card-header-info">
                     <h3>島子 公佑（しまこ こうすけ）</h3>
                     <div class="belong">駒澤大学 経営学部 3年</div>
@@ -607,8 +626,8 @@
                 </div>
             </div>
 
-            <!-- 3. 古橋 希翁 選手 -->
-            <div class="card">
+            <!-- 3. 駿河台大学・古橋選手（ブルー） -->
+            <div class="card surugadai">
                 <div class="card-header-info">
                     <h3>古橋 希翁（ふるはし まれお）</h3>
                     <div class="belong">駿河台大学 スポーツ科学部 4年</div>
@@ -628,8 +647,8 @@
                 </div>
             </div>
 
-            <!-- 4. 小林 周太郎 選手 -->
-            <div class="card">
+            <!-- 4. 明治大学・小林選手（紫紺） -->
+            <div class="card meiji">
                 <div class="card-header-info">
                     <h3>小林 周太郎（こばやし しゅうたろう）</h3>
                     <div class="belong">明治大学 経営学部 4年</div>
