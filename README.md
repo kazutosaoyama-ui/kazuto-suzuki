@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>伊賀白鳳高校陸上部OB ランニングイベント2027</title>
+    <!-- Google Fontsの読み込み（モダンで高級感のあるフォント設定） -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
     <style>
         /* 全体の基本設定 */
         :root {
             --primary-color: #0f172a;
             --accent-color: #f59e0b;
-            --bg-color: #f8fafc;
-            --text-color: #334155;
-            --white: #ffffff;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #64748b;
             
-            /* 大学カラーの定義 */
+            /* 各大学カラー */
             --toyo-color: #1e3a8a;     /* 東洋大：鉄紺 */
             --komazawa-color: #990000; /* 駒澤大：エンジ */
             --surugadai-color: #0284c7;/* 駿河台大：ブルー */
@@ -25,64 +30,67 @@
         }
 
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.7;
+            font-family: 'Noto Sans JP', system-ui, -apple-system, sans-serif;
+            line-height: 1.8;
             margin: 0;
             padding: 0;
-            color: var(--text-color);
-            background-color: var(--bg-color);
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            letter-spacing: 0.03em;
         }
 
         /* ヘッダー・ナビゲーション */
         header {
-            background-color: var(--primary-color);
-            color: var(--white);
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         .header-container {
-            max-width: 1100px;
+            max-width: 1140px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 20px;
+            padding: 16px 24px;
             flex-wrap: wrap;
         }
         .header-title {
-            font-size: 1rem;
-            font-weight: bold;
-            letter-spacing: 0.05em;
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
             margin: 0;
+            font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
         }
         nav ul {
             display: flex;
             list-style: none;
             padding: 0;
             margin: 0;
-            gap: 15px;
+            gap: 20px;
             flex-wrap: wrap;
         }
         nav a {
             color: #cbd5e1;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 500;
             transition: color 0.3s;
+            letter-spacing: 0.05em;
         }
         nav a:hover {
-            color: var(--white);
-            border-bottom: 2px solid var(--accent-color);
+            color: var(--accent-color);
         }
 
         /* メインビジュアル（15秒自動スライダー） */
         .hero-slider {
             position: relative;
             width: 100%;
-            height: 60vh;
-            min-height: 420px;
+            height: 65vh;
+            min-height: 460px;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -113,7 +121,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(15, 23, 42, 0.45);
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.5) 0%, rgba(15, 23, 42, 0.75) 100%);
             z-index: 2;
         }
 
@@ -125,12 +133,11 @@
             max-width: 900px;
         }
 
-        /* 2段タイトル */
         .hero-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
             font-weight: 900;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
             background: linear-gradient(45deg, #ffffff, #fde047, #f97316, #ffffff);
             background-size: 300% 300%;
             -webkit-background-clip: text;
@@ -142,8 +149,8 @@
 
         .hero-content h1 .sub-title-line {
             display: block;
-            font-size: 2.2rem;
-            margin-top: 5px;
+            font-size: 2.3rem;
+            margin-top: 8px;
         }
 
         @keyframes shineText {
@@ -153,87 +160,132 @@
         }
 
         .hero-content p {
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             color: #fde047;
-            font-weight: bold;
-            letter-spacing: 0.1em;
+            font-weight: 700;
+            letter-spacing: 0.15em;
             text-shadow: 0 2px 5px rgba(0,0,0,0.8);
             margin-top: 0;
         }
 
         .slider-dots {
             position: absolute;
-            bottom: 20px;
+            bottom: 24px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 10px;
+            gap: 12px;
             z-index: 4;
         }
         .dot {
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, 0.4);
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: all 0.3s;
         }
         .dot.active {
             background-color: var(--accent-color);
-            transform: scale(1.2);
+            transform: scale(1.3);
+            width: 24px;
+            border-radius: 5px;
         }
 
-        /* 各セクション共通 */
+        /* セクション共通レイアウト（ななつぼし風の余白＆英語タイトル） */
         section {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 40px 30px;
-            background: var(--white);
-            border-radius: 12px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            max-width: 1000px;
+            margin: 70px auto;
+            padding: 50px 40px;
+            background: var(--bg-white);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+            position: relative;
+        }
+        
+        .section-header {
+            margin-bottom: 35px;
+            text-align: left;
+        }
+        .section-en {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            letter-spacing: 0.2em;
+            margin-bottom: 4px;
         }
         h2 {
             color: var(--primary-color);
-            font-size: 1.6rem;
-            border-left: 5px solid var(--accent-color);
-            padding-left: 15px;
-            margin-top: 0;
-            margin-bottom: 25px;
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin: 0;
+            letter-spacing: 0.05em;
+            position: relative;
+            display: inline-block;
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+            margin-top: 8px;
         }
 
-        /* テーブル設定 */
+        /* テーブル設定（洗練されたモダンフラットデザイン） */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            margin-top: 25px;
         }
         table th, table td {
-            border-bottom: 1px solid #e2e8f0;
-            padding: 16px;
+            border-bottom: 1px solid #f1f5f9;
+            padding: 18px 20px;
             text-align: left;
+            font-size: 0.95rem;
         }
         table th {
-            background-color: #f1f5f9;
+            background-color: #f8fafc;
             color: var(--primary-color);
-            width: 28%;
-            font-weight: 600;
+            width: 26%;
+            font-weight: 700;
+            border-radius: 4px;
         }
 
-        /* タイムスケジュール */
+        /* 当日の流れ（モダンタイムライン） */
         .timeline {
             list-style: none;
             padding: 0;
+            margin-top: 25px;
         }
         .timeline li {
-            padding: 14px 0;
-            border-bottom: 1px dashed #cbd5e1;
+            padding: 18px 20px;
+            border-left: 3px solid #e2e8f0;
+            margin-left: 10px;
+            position: relative;
             display: flex;
             align-items: center;
         }
+        .timeline li::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            border: 3px solid var(--bg-white);
+        }
         .timeline .time {
-            font-weight: bold;
-            width: 120px;
-            color: var(--accent-color);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            width: 110px;
+            color: var(--primary-color);
             font-size: 1.05rem;
         }
 
@@ -241,77 +293,79 @@
         .organizer-container {
             display: flex;
             justify-content: center;
+            margin-top: 25px;
         }
         .organizer-card {
-            max-width: 350px;
+            max-width: 380px;
             width: 100%;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            background: var(--white);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            background: var(--bg-white);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.06);
             text-align: center;
+            border: 1px solid #f1f5f9;
         }
         .organizer-card img {
             width: 100%;
-            height: 280px;
+            height: 300px;
             object-fit: cover;
             object-position: top;
         }
 
-        /* OB選手カードグリッド & 大学別カラースタイル */
+        /* OB選手カードグリッド & 大学別カラー */
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 25px;
-            margin-top: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
         }
         .card {
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
+            border-radius: 16px;
             overflow: hidden;
-            background: var(--white);
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            background: var(--bg-white);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+            border: 1px solid #f1f5f9;
         }
         .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 30px rgba(0,0,0,0.09);
         }
 
-        /* 大学ごとのカラーアクセント（左のボーダー） */
-        .card.toyo { border-top: 5px solid var(--toyo-color); }
-        .card.komazawa { border-top: 5px solid var(--komazawa-color); }
-        .card.surugadai { border-top: 5px solid var(--surugadai-color); }
-        .card.meiji { border-top: 5px solid var(--meiji-color); }
+        /* 各大学のボーダーアクセント */
+        .card.toyo { border-top: 6px solid var(--toyo-color); }
+        .card.komazawa { border-top: 6px solid var(--komazawa-color); }
+        .card.surugadai { border-top: 6px solid var(--surugadai-color); }
+        .card.meiji { border-top: 6px solid var(--meiji-color); }
 
         .card-header-info {
             background-color: #f8fafc;
-            padding: 15px 20px;
-            border-bottom: 1px solid #e2e8f0;
+            padding: 20px 24px;
+            border-bottom: 1px solid #f1f5f9;
         }
         .card-header-info h3 {
             margin: 0;
             color: var(--primary-color);
-            font-size: 1.25rem;
+            font-size: 1.3rem;
+            font-weight: 700;
         }
 
-        /* 大学別の所属文字カラー */
-        .card.toyo .belong { color: var(--toyo-color); font-size: 0.95rem; font-weight: bold; margin-top: 4px; }
-        .card.komazawa .belong { color: var(--komazawa-color); font-size: 0.95rem; font-weight: bold; margin-top: 4px; }
-        .card.surugadai .belong { color: var(--surugadai-color); font-size: 0.95rem; font-weight: bold; margin-top: 4px; }
-        .card.meiji .belong { color: var(--meiji-color); font-size: 0.95rem; font-weight: bold; margin-top: 4px; }
+        /* 大学名表記スタイル */
+        .card.toyo .belong { color: var(--toyo-color); font-weight: 700; font-size: 0.95rem; margin-top: 4px; }
+        .card.komazawa .belong { color: var(--komazawa-color); font-weight: 700; font-size: 0.95rem; margin-top: 4px; }
+        .card.surugadai .belong { color: var(--surugadai-color); font-weight: 700; font-size: 0.95rem; margin-top: 4px; }
+        .card.meiji .belong { color: var(--meiji-color); font-weight: 700; font-size: 0.95rem; margin-top: 4px; }
 
         .card-content {
-            padding: 20px;
+            padding: 24px;
         }
         .pb-list {
             background-color: #f8fafc;
-            padding: 12px 15px;
-            border-radius: 6px;
+            padding: 14px 18px;
+            border-radius: 8px;
             font-size: 0.9rem;
-            margin-bottom: 15px;
-            border-left: 3px solid #cbd5e1;
+            margin-bottom: 18px;
+            border-left: 4px solid #cbd5e1;
         }
         .card.toyo .pb-list { border-left-color: var(--toyo-color); }
         .card.komazawa .pb-list { border-left-color: var(--komazawa-color); }
@@ -323,106 +377,109 @@
         }
         .achievement-title {
             font-size: 0.95rem;
-            font-weight: bold;
+            font-weight: 700;
             color: var(--primary-color);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 6px;
         }
         .achievement-list {
             margin: 0;
-            padding-left: 18px;
+            padding-left: 20px;
             font-size: 0.88rem;
             color: #475569;
         }
         .achievement-list li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
         .race-tag {
             display: inline-block;
-            background-color: #e2e8f0;
+            background-color: #f1f5f9;
             color: var(--primary-color);
-            font-size: 0.75rem;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-weight: bold;
-            margin-right: 4px;
+            font-size: 0.78rem;
+            padding: 2px 10px;
+            border-radius: 6px;
+            font-weight: 700;
+            margin-right: 6px;
         }
 
+        /* お問い合わせメール */
         .contact-mail {
             color: var(--accent-color);
-            font-weight: bold;
+            font-weight: 700;
             text-decoration: none;
         }
         .contact-mail:hover {
             text-decoration: underline;
         }
 
-        /* 応募ボタン */
+        /* ななつぼし風洗練された応募ボタン */
         .btn-apply {
             display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-            padding: 18px 50px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: #ffffff;
+            padding: 20px 60px;
             font-size: 1.25rem;
             font-weight: 900;
             text-decoration: none;
             border-radius: 50px;
-            transition: background 0.3s, transform 0.2s;
-            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.35);
+            letter-spacing: 0.08em;
         }
         .btn-apply:hover {
-            background-color: #d97706;
-            transform: scale(1.03);
-            color: var(--white);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(245, 158, 11, 0.45);
         }
         .apply-container {
             text-align: center;
-            padding: 10px;
+            padding: 20px 10px;
         }
 
         /* フッター */
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 40px 20px;
             background-color: var(--primary-color);
             color: #94a3b8;
-            margin-top: 80px;
+            margin-top: 100px;
             font-size: 0.85rem;
+            letter-spacing: 0.05em;
         }
 
-        /* スマホ対応 */
+        /* スマホレスポンシブ対応 */
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
                 text-align: center;
-                gap: 10px;
+                gap: 12px;
             }
             nav ul {
                 justify-content: center;
-                gap: 8px;
+                gap: 10px;
             }
             nav a {
-                font-size: 0.85rem;
-                padding: 4px 6px;
+                font-size: 0.82rem;
+                padding: 4px;
             }
             .hero-slider {
-                height: 50vh;
-                min-height: 350px;
+                height: 52vh;
+                min-height: 360px;
             }
             .hero-content h1 {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
             }
             .hero-content h1 .sub-title-line {
-                font-size: 1.3rem;
+                font-size: 1.35rem;
             }
             .hero-content p {
                 font-size: 1.05rem;
             }
             section {
-                margin: 20px 10px;
-                padding: 25px 15px;
+                margin: 25px 12px;
+                padding: 30px 20px;
+                border-radius: 12px;
             }
             .card-grid {
                 grid-template-columns: 1fr;
@@ -430,12 +487,16 @@
             table th {
                 width: 35%;
             }
+            .btn-apply {
+                padding: 16px 35px;
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- ヘッダー（上部固定ナビゲーションタブ） -->
+    <!-- ヘッダー（ナビゲーション） -->
     <header>
         <div class="header-container">
             <p class="header-title">伊賀白鳳高校 23年卒OB ランニングイベント</p>
@@ -452,7 +513,7 @@
         </div>
     </header>
 
-    <!-- メインビジュアル（15秒自動切り替えスライダー） -->
+    <!-- 15秒自動切り替えスライダー -->
     <div class="hero-slider">
         <div class="slide active" style="background-image: url('https://github.com/user-attachments/assets/bd058cdc-9978-4ec1-afab-8caebe05635c');"></div>
         <div class="slide" style="background-image: url('https://github.com/user-attachments/assets/6b486f94-cb59-4365-bced-ab18cbd034c6');"></div>
@@ -479,7 +540,10 @@
 
     <!-- 1. イベント情報 -->
     <section id="about">
-        <h2>ランニングイベント情報</h2>
+        <div class="section-header">
+            <span class="section-en">EVENT INFO</span>
+            <h2>ランニングイベント情報</h2>
+        </div>
         <p>地元三重県への恩返しと次世代ランナーの育成を目的に、伊賀白鳳高校陸上部23年卒OBによるランニング教室を開催いたします。走りの基本から大会に向けたアドバイスまで、現役大学生ランナーが直接指導します！</p>
         <table>
             <tr>
@@ -511,7 +575,10 @@
 
     <!-- 2. 大会運営元・連絡先情報 -->
     <section id="contact">
-        <h2>大会運営元・お問い合わせ</h2>
+        <div class="section-header">
+            <span class="section-en">CONTACT</span>
+            <h2>大会運営元・お問い合わせ</h2>
+        </div>
         <p>イベントに関する質問、取材のお申し込み、協賛についてのお問い合わせは下記運営事務局までご連絡ください。</p>
         <table>
             <tr>
@@ -539,7 +606,10 @@
 
     <!-- 3. 主催者紹介 -->
     <section id="organizer">
-        <h2>主催者紹介</h2>
+        <div class="section-header">
+            <span class="section-en">ORGANIZER</span>
+            <h2>主催者紹介</h2>
+        </div>
         <div class="organizer-container">
             <div class="organizer-card">
                 <img src="https://github.com/user-attachments/assets/c37e14f4-1a98-4d36-8695-bf669c77403d" alt="鈴木千翔">
@@ -554,7 +624,10 @@
 
     <!-- 4. 当日の流れ -->
     <section id="schedule">
-        <h2>イベント当日の流れ</h2>
+        <div class="section-header">
+            <span class="section-en">SCHEDULE</span>
+            <h2>イベント当日の流れ</h2>
+        </div>
         <ul class="timeline">
             <li>
                 <span class="time">08:30〜</span>
@@ -579,14 +652,17 @@
         </ul>
     </section>
 
-    <!-- 5. 参加OB選手紹介（大学別カラー適用） -->
+    <!-- 5. 参加OB選手紹介（大学別カラー） -->
     <section id="athletes">
-        <h2>参加OB選手紹介</h2>
+        <div class="section-header">
+            <span class="section-en">ATHLETES</span>
+            <h2>参加OB選手紹介</h2>
+        </div>
         <p>伊賀白鳳高校23年卒の豪華メンバーが集結します！現役の大学陸上界で活躍する選手たちから直接アドバイスを受けることができます。</p>
         
         <div class="card-grid">
             
-            <!-- 1. 東洋大学・倉本選手（鉄紺） -->
+            <!-- 東洋大学・倉本選手 -->
             <div class="card toyo">
                 <div class="card-header-info">
                     <h3>倉本 晃羽（くらもと あきは）</h3>
@@ -606,7 +682,7 @@
                 </div>
             </div>
 
-            <!-- 2. 駒澤大学・島子選手（エンジ） -->
+            <!-- 駒澤大学・島子選手 -->
             <div class="card komazawa">
                 <div class="card-header-info">
                     <h3>島子 公佑（しまこ こうすけ）</h3>
@@ -626,7 +702,7 @@
                 </div>
             </div>
 
-            <!-- 3. 駿河台大学・古橋選手（ブルー） -->
+            <!-- 駿河台大学・古橋選手 -->
             <div class="card surugadai">
                 <div class="card-header-info">
                     <h3>古橋 希翁（ふるはし まれお）</h3>
@@ -647,7 +723,7 @@
                 </div>
             </div>
 
-            <!-- 4. 明治大学・小林選手（紫紺） -->
+            <!-- 明治大学・小林選手 -->
             <div class="card meiji">
                 <div class="card-header-info">
                     <h3>小林 周太郎（こばやし しゅうたろう）</h3>
@@ -672,9 +748,12 @@
 
     <!-- 6. 参加者応募 -->
     <section id="apply">
-        <h2>参加者応募</h2>
+        <div class="section-header" style="text-align: center;">
+            <span class="section-en">ENTRY</span>
+            <h2 style="display: block;">参加者応募</h2>
+        </div>
         <div class="apply-container">
-            <p>イベントへのご参加はこちらのフォームよりお申し込みください。（定員に達し次第締め切ります）</p>
+            <p style="margin-bottom: 30px;">イベントへのご参加はこちらのフォームよりお申し込みください。（定員に達し次第締め切ります）</p>
             <a href="https://forms.google.com/" target="_blank" class="btn-apply">参加申し込みフォームはこちら</a>
         </div>
     </section>
