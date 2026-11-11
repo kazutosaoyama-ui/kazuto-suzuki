@@ -14,6 +14,10 @@
             --white: #ffffff;
         }
 
+        html {
+            scroll-behavior: smooth; /* タブをクリックした時に滑らかにスクロール */
+        }
+
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.7;
@@ -23,7 +27,7 @@
             background-color: var(--bg-color);
         }
 
-        /* ヘッダー・ナビゲーション */
+        /* ヘッダー・ナビゲーション（上部固定メニュー） */
         header {
             background-color: var(--primary-color);
             color: var(--white);
@@ -67,12 +71,12 @@
             border-bottom: 2px solid var(--accent-color);
         }
 
-        /* メインビジュアル（自動背景スライダー：写真が綺麗に収まるよう調整） */
+        /* メインビジュアル（15秒自動スライダー） */
         .hero-slider {
             position: relative;
             width: 100%;
-            height: 65vh;
-            min-height: 450px;
+            height: 60vh;
+            min-height: 420px;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -80,7 +84,6 @@
             background-color: #0f172a;
         }
 
-        /* 背景スライド画像の設定（containで全体を小さくきれいに収める） */
         .slide {
             position: absolute;
             top: 0;
@@ -98,18 +101,16 @@
             opacity: 1;
         }
 
-        /* 写真の上下にうっすら暗いレイヤーを敷き、文字を読みやすくする */
         .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(15, 23, 42, 0.4);
+            background: rgba(15, 23, 42, 0.45);
             z-index: 2;
         }
 
-        /* キャッチコピー（中央テキスト） */
         .hero-content {
             position: relative;
             z-index: 3;
@@ -118,7 +119,6 @@
             max-width: 900px;
         }
 
-        /* グラデーション動的タイトル */
         .hero-content h1 {
             font-size: 2.5rem;
             margin-bottom: 15px;
@@ -147,7 +147,6 @@
             margin-top: 0;
         }
 
-        /* スライド用インジケーター（ドット） */
         .slider-dots {
             position: absolute;
             bottom: 20px;
@@ -173,7 +172,7 @@
         /* 各セクション共通 */
         section {
             max-width: 900px;
-            margin: 60px auto;
+            margin: 50px auto;
             padding: 40px 30px;
             background: var(--white);
             border-radius: 12px;
@@ -188,7 +187,7 @@
             margin-bottom: 25px;
         }
 
-        /* イベント概要（テーブル） */
+        /* テーブル設定（イベント概要・連絡先情報用） */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -202,7 +201,7 @@
         table th {
             background-color: #f1f5f9;
             color: var(--primary-color);
-            width: 25%;
+            width: 28%;
             font-weight: 600;
         }
 
@@ -246,7 +245,7 @@
             object-position: top;
         }
 
-        /* 一般カードグリッド（OB選手用） */
+        /* カードグリッド（OB選手用） */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -280,6 +279,16 @@
         .card-content p {
             margin: 6px 0;
             font-size: 0.95rem;
+        }
+
+        /* 連絡先エリア（お問い合わせリンク） */
+        .contact-mail {
+            color: var(--accent-color);
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .contact-mail:hover {
+            text-decoration: underline;
         }
 
         /* 応募ボタン */
@@ -344,47 +353,45 @@
                 margin: 20px 10px;
                 padding: 25px 15px;
             }
-            .organizer-card img {
-                height: 240px;
+            table th {
+                width: 35%;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ヘッダー（ナビゲーション） -->
+    <!-- ヘッダー（上部固定ナビゲーションタブ） -->
     <header>
         <div class="header-container">
             <p class="header-title">伊賀白鳳高校 23年卒OB ランニングイベント</p>
             <nav>
                 <ul>
-                    <li><a href="#about">概要</a></li>
+                    <li><a href="#about">イベント情報</a></li>
+                    <li><a href="#contact">運営元連絡先</a></li>
                     <li><a href="#organizer">主催者</a></li>
-                    <li><a href="#schedule">スケジュール</a></li>
-                    <li><a href="#athletes">OB選手</a></li>
+                    <li><a href="#schedule">当日の流れ</a></li>
+                    <li><a href="#athletes">参加OB選手</a></li>
                     <li><a href="#apply">お申し込み</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- 15秒で切替表示される自動スライダーセクション（画像サイズ調整済み） -->
+    <!-- メインビジュアル（15秒自動切り替えスライダー） -->
     <div class="hero-slider">
-        <!-- 背景画像4枚（ご指定のGitHubアタッチメントURLを使用） -->
+        <div class="slide active" style="background-image: url('https://github.com/user-attachments/assets/bd058cdc-9978-4ec1-afab-8caebe05635c');"></div>
         <div class="slide" style="background-image: url('https://github.com/user-attachments/assets/6b486f94-cb59-4365-bced-ab18cbd034c6');"></div>
         <div class="slide" style="background-image: url('https://github.com/user-attachments/assets/06540e3d-c217-4e20-88fc-b14f46b5483c');"></div>
         <div class="slide" style="background-image: url('https://github.com/user-attachments/assets/f8d02b5f-be84-48ac-a684-87f5b850df4a');"></div>
         
-        <!-- オーバーレイ -->
         <div class="hero-overlay"></div>
 
-        <!-- キャッチコピー（ご指定のタイトル・サブタイトル） -->
         <div class="hero-content">
             <h1>伊賀白鳳高校陸上部OB ランニングイベント2027</h1>
             <p>すべては感動のために</p>
         </div>
 
-        <!-- インジケータードット -->
         <div class="slider-dots">
             <span class="dot active" onclick="setSlide(0)"></span>
             <span class="dot" onclick="setSlide(1)"></span>
@@ -393,11 +400,15 @@
         </div>
     </div>
 
-    <!-- 1. イベント概要 -->
+    <!-- 1. イベント情報 (最初のメインセクション) -->
     <section id="about">
-        <h2>イベント概要</h2>
-        <p>地元三重県への恩返しと、次世代ランナーの育成を目的に、伊賀白鳳高校陸上部23年卒OBによるランニング教室を開催いたします。走りの基本から大会に向けたアドバイスまで、現役大学生ランナーが直接指導します！</p>
+        <h2>ランニングイベント情報</h2>
+        <p>地元三重県への恩返しと次世代ランナーの育成を目的に、伊賀白鳳高校陸上部23年卒OBによるランニング教室を開催いたします。走りの基本から大会に向けたアドバイスまで、現役大学生ランナーが直接指導します！</p>
         <table>
+            <tr>
+                <th>イベント名</th>
+                <td>伊賀白鳳高校陸上部OB ランニングイベント2027</td>
+            </tr>
             <tr>
                 <th>日時</th>
                 <td>3月7日(土) 9:00〜12:00（受付開始 8:30〜）</td>
@@ -421,7 +432,35 @@
         </table>
     </section>
 
-    <!-- 2. 主催者紹介 -->
+    <!-- 2. 大会運営元・連絡先情報 -->
+    <section id="contact">
+        <h2>大会運営元・お問い合わせ</h2>
+        <p>イベントに関する質問、取材のお申し込み、協賛についてのお問い合わせは下記運営事務局までご連絡ください。</p>
+        <table>
+            <tr>
+                <th>運営団体</th>
+                <td>伊賀白鳳高校陸上部23年卒OB ランニングイベント実行委員会</td>
+            </tr>
+            <tr>
+                <th>代表責任者</th>
+                <td>鈴木 千翔（青山学院大学 陸上競技部）</td>
+            </tr>
+            <tr>
+                <th>所在地・活動拠点</th>
+                <td>三重県伊賀市（またはご指定の住所・地域）</td>
+            </tr>
+            <tr>
+                <th>メールアドレス</th>
+                <td><a href="mailto:example@email.com" class="contact-mail">example@email.com</a>（※ご指定のアドレスに変更してください）</td>
+            </tr>
+            <tr>
+                <th>電話番号</th>
+                <td>090-XXXX-XXXX（※必要な場合のみ記入）</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- 3. 主催者紹介 -->
     <section id="organizer">
         <h2>主催者紹介</h2>
         <div class="organizer-container">
@@ -436,7 +475,7 @@
         </div>
     </section>
 
-    <!-- 3. イベント当日の流れ -->
+    <!-- 4. 当日の流れ -->
     <section id="schedule">
         <h2>イベント当日の流れ</h2>
         <ul class="timeline">
@@ -463,7 +502,7 @@
         </ul>
     </section>
 
-    <!-- 4. 参加OB選手紹介 -->
+    <!-- 5. 参加OB選手紹介 -->
     <section id="athletes">
         <h2>参加OB選手紹介</h2>
         <p>伊賀白鳳高校23年卒の豪華メンバーが集結します！</p>
@@ -487,7 +526,7 @@
         </div>
     </section>
 
-    <!-- 5. 参加者応募 -->
+    <!-- 6. 参加者応募 -->
     <section id="apply">
         <h2>参加者応募</h2>
         <div class="apply-container">
@@ -500,12 +539,12 @@
         <p>&copy; 2027 23年卒 伊賀白鳳高校陸上部OB ランニングイベント実行委員会</p>
     </footer>
 
-    <!-- 15秒自動切り替えJavaScript処理 -->
+    <!-- スライダー切替用JavaScript -->
     <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
         const dots = document.querySelectorAll('.dot');
-        const intervalTime = 15000; // 15秒
+        const intervalTime = 15000;
         let slideInterval;
 
         function showSlide(index) {
