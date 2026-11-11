@@ -1,801 +1,533 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>伊賀白鳳高校陸上部OB ランニングイベント2027</title>
-    <!-- Google Fontsの読み込み（モダンで高級感のあるフォント設定） -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
-    <style>
-        /* 全体の基本設定 */
-        :root {
-            --primary-color: #0f172a;
-            --accent-color: #f59e0b;
-            --bg-light: #f8fafc;
-            --bg-white: #ffffff;
-            --text-main: #1e293b;
-            --text-sub: #64748b;
-            
-            /* 各大学カラー */
-            --toyo-color: #1e3a8a;     /* 東洋大：鉄紺 */
-            --komazawa-color: #990000; /* 駒澤大：エンジ */
-            --surugadai-color: #0284c7;/* 駿河台大：ブルー */
-            --meiji-color: #5b21b6;    /* 明治大：紫紺 */
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>伊賀白鳳高校陸上部OB ランニングイベント2027</title>
+<meta name="description" content="伊賀白鳳高校陸上部23年卒OBによるランニング教室。現役大学ランナーが走りの基本から大会に向けたアドバイスまで直接指導します。">
+<meta property="og:title" content="伊賀白鳳高校陸上部OB ランニングイベント2027">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* Layout concept: 陸上競技場のトラックとゼッケンをモチーフにした縦長ランディングページ。
+   レーンライン区切り / 巨大な英語見出し / ゼッケン型の選手カード / タイムテーブル形式の当日の流れ */
+:root {
+  --ink: #0e1726;        /* 本文・ダーク面 */
+  --ink-soft: #3b4658;
+  --track: #e0452c;      /* タータントラックの赤 */
+  --track-deep: #b8321c;
+  --paper: #f2f4f7;      /* 背景（ごくわずかに青みのあるグレー） */
+  --white: #ffffff;
+  --line: #dde2ea;
+  --mute: #6b7586;
 
-        html {
-            scroll-behavior: smooth;
-        }
+  --toyo: #1e3a8a;
+  --komazawa: #9b111e;
+  --surugadai: #0284c7;
+  --meiji: #5b21b6;
 
-        body {
-            font-family: 'Noto Sans JP', system-ui, -apple-system, sans-serif;
-            line-height: 1.8;
-            margin: 0;
-            padding: 0;
-            color: var(--text-main);
-            background-color: var(--bg-light);
-            letter-spacing: 0.03em;
-        }
+  --font-display: 'Barlow Condensed', 'Noto Sans JP', sans-serif;
+  --font-body: 'Noto Sans JP', system-ui, -apple-system, sans-serif;
+  --gutter: clamp(18px, 5vw, 48px);
+}
 
-        /* ヘッダー・ナビゲーション */
-        header {
-            background-color: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(8px);
-            color: #ffffff;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        .header-container {
-            max-width: 1140px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 24px;
-            flex-wrap: wrap;
-        }
-        .header-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            margin: 0;
-            font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
-        }
-        nav ul {
-            display: flex;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        nav a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 0.88rem;
-            font-weight: 500;
-            transition: color 0.3s;
-            letter-spacing: 0.05em;
-        }
-        nav a:hover {
-            color: var(--accent-color);
-        }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.85;
+  letter-spacing: .03em;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+.wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding-inline: var(--gutter); }
 
-        /* メインビジュアル（15秒自動スライダー） */
-        .hero-slider {
-            position: relative;
-            width: 100%;
-            height: 65vh;
-            min-height: 460px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #0f172a;
-        }
+/* ---------- Header ---------- */
+.site-header {
+  position: fixed; inset: 0 0 auto 0; z-index: 100;
+  background: rgba(14, 23, 38, .92);
+  backdrop-filter: blur(10px);
+  color: #fff;
+}
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+.brand { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; letter-spacing: .12em; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
+.brand b { color: var(--track); }
+.gnav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
+.gnav a { font-family: var(--font-display); font-weight: 600; font-size: .95rem; letter-spacing: .16em; text-decoration: none; color: #c7cfdb; text-transform: uppercase; transition: color .2s; }
+.gnav a:hover { color: #fff; }
+.menu-btn { display: none; background: none; border: 0; width: 44px; height: 44px; padding: 0; cursor: pointer; position: relative; }
+.menu-btn span { position: absolute; left: 10px; right: 10px; height: 2px; background: #fff; transition: transform .25s, opacity .25s; }
+.menu-btn span:nth-child(1) { top: 15px; }
+.menu-btn span:nth-child(2) { top: 21px; }
+.menu-btn span:nth-child(3) { top: 27px; }
+.menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-            z-index: 1;
-        }
-        .slide.active {
-            opacity: 1;
-        }
+/* ---------- Hero ---------- */
+.hero { padding-top: 64px; background: var(--ink); color: #fff; position: relative; overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); min-height: min(78vh, 700px); }
+.hero-copy { display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 56px var(--gutter) 56px max(var(--gutter), calc((100vw - 1120px) / 2 + var(--gutter))); position: relative; z-index: 2; }
+.hero-kicker { font-family: var(--font-display); font-weight: 700; letter-spacing: .28em; font-size: .95rem; color: var(--track); text-transform: uppercase; display: flex; align-items: center; gap: 14px; }
+.hero-kicker::before { content: ''; width: 44px; height: 3px; background: var(--track); }
+.hero h1 { margin: 0; font-weight: 900; font-size: clamp(2rem, 4.2vw, 3.6rem); line-height: 1.22; letter-spacing: .06em; }
+.hero h1 em { font-style: normal; display: block; color: var(--track); }
+.hero-tagline { margin: 0; font-weight: 700; letter-spacing: .22em; font-size: 1.05rem; color: #dfe5ee; }
+.hero-date { display: flex; align-items: flex-end; gap: 14px; margin-top: 6px; }
+.hero-date .big { font-family: var(--font-display); font-weight: 800; font-size: clamp(3.4rem, 7vw, 5.6rem); line-height: .9; letter-spacing: .02em; }
+.hero-date .big small { font-size: .38em; letter-spacing: .1em; margin-left: .15em; }
+.hero-date .meta { font-size: .88rem; line-height: 1.5; color: #c7cfdb; padding-bottom: 6px; }
+.hero-date .meta strong { display: block; color: #fff; font-size: 1.05rem; letter-spacing: .12em; }
 
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(15, 23, 42, 0.5) 0%, rgba(15, 23, 42, 0.75) 100%);
-            z-index: 2;
-        }
+.hero-visual { position: relative; min-height: 340px; background: #070d18; }
+.slide { position: absolute; inset: 0; background-size: cover; background-position: center 30%; opacity: 0; transition: opacity 1.4s ease; }
+.slide.active { opacity: 1; }
+.hero-visual::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(14,23,38,.85) 0%, rgba(14,23,38,0) 28%); pointer-events: none; }
+.dots { position: absolute; right: 24px; bottom: 22px; display: flex; gap: 8px; z-index: 3; }
+.dot { width: 28px; height: 4px; background: rgba(255,255,255,.4); border: 0; padding: 0; cursor: pointer; transition: background .3s; }
+.dot.active { background: var(--track); }
+.dot:focus-visible, .btn:focus-visible, a:focus-visible, .menu-btn:focus-visible { outline: 3px solid var(--track); outline-offset: 3px; }
 
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            text-align: center;
-            padding: 0 20px;
-            max-width: 900px;
-        }
+/* レーンライン */
+.lanes { height: 22px; background: repeating-linear-gradient(180deg, var(--track) 0 3px, transparent 3px 7px); opacity: .9; }
 
-        .hero-content h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            font-weight: 900;
-            letter-spacing: 0.08em;
-            background: linear-gradient(45deg, #ffffff, #fde047, #f97316, #ffffff);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shineText 5s ease infinite;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-            line-height: 1.3;
-        }
+/* ---------- Sections ---------- */
+section { padding-block: clamp(64px, 9vw, 110px); }
+.sec-head { margin-bottom: clamp(32px, 5vw, 56px); position: relative; }
+.sec-en { display: block; font-family: var(--font-display); font-weight: 800; text-transform: uppercase; font-size: clamp(3rem, 9vw, 6.4rem); line-height: .9; letter-spacing: .04em; color: transparent; -webkit-text-stroke: 1.5px rgba(14,23,38,.22); }
+.sec-ja { display: inline-flex; align-items: center; gap: 12px; margin: -14px 0 0 4px; font-weight: 900; font-size: clamp(1.25rem, 2.6vw, 1.7rem); letter-spacing: .1em; position: relative; }
+.sec-ja::before { content: ''; width: 28px; height: 4px; background: var(--track); }
+.dark .sec-en { -webkit-text-stroke-color: rgba(255,255,255,.28); }
 
-        .hero-content h1 .sub-title-line {
-            display: block;
-            font-size: 2.3rem;
-            margin-top: 8px;
-        }
+.lead { max-width: 46em; font-size: 1.02rem; color: var(--ink-soft); margin: 0 0 36px; }
 
-        @keyframes shineText {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+/* Info strip */
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: -44px 0 0; position: relative; z-index: 5; background: var(--white); box-shadow: 0 18px 40px rgba(14,23,38,.12); }
+.fact { padding: 26px 28px; border-right: 1px solid var(--line); }
+.fact:last-child { border-right: 0; }
+.fact .k { font-family: var(--font-display); font-weight: 700; letter-spacing: .24em; font-size: .85rem; color: var(--track); text-transform: uppercase; }
+.fact .v { font-weight: 900; font-size: 1.25rem; line-height: 1.5; margin-top: 4px; }
+.fact .v small { display: block; font-weight: 500; font-size: .85rem; color: var(--mute); }
 
-        .hero-content p {
-            font-size: 1.35rem;
-            color: #fde047;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
-            margin-top: 0;
-        }
+/* News */
+.news-list { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+.news-list li { display: grid; grid-template-columns: 130px 1fr; gap: 18px; padding: 20px 4px; border-bottom: 1px solid var(--line); align-items: baseline; }
+.news-list time { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; letter-spacing: .1em; color: var(--mute); }
+.news-list p { margin: 0; font-weight: 500; }
 
-        .slider-dots {
-            position: absolute;
-            bottom: 24px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 12px;
-            z-index: 4;
-        }
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.4);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .dot.active {
-            background-color: var(--accent-color);
-            transform: scale(1.3);
-            width: 24px;
-            border-radius: 5px;
-        }
+/* Points */
+.points { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.point { background: var(--white); padding: 34px 28px 30px; position: relative; border-top: 5px solid var(--track); }
+.point .tag { font-family: var(--font-display); font-weight: 800; letter-spacing: .2em; font-size: .85rem; color: var(--track); }
+.point h3 { margin: 6px 0 12px; font-size: 1.2rem; font-weight: 900; line-height: 1.5; letter-spacing: .06em; }
+.point p { margin: 0; font-size: .93rem; color: var(--ink-soft); }
 
-        /* セクション共通レイアウト（ななつぼし風の余白＆英語タイトル） */
-        section {
-            max-width: 1000px;
-            margin: 70px auto;
-            padding: 50px 40px;
-            background: var(--bg-white);
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
-            position: relative;
-        }
-        
-        .section-header {
-            margin-bottom: 35px;
-            text-align: left;
-        }
-        .section-en {
-            display: block;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 800;
-            color: var(--accent-color);
-            letter-spacing: 0.2em;
-            margin-bottom: 4px;
-        }
-        h2 {
-            color: var(--primary-color);
-            font-size: 1.8rem;
-            font-weight: 900;
-            margin: 0;
-            letter-spacing: 0.05em;
-            position: relative;
-            display: inline-block;
-        }
-        h2::after {
-            content: '';
-            display: block;
-            width: 40px;
-            height: 4px;
-            background-color: var(--accent-color);
-            border-radius: 2px;
-            margin-top: 8px;
-        }
+/* Definition tables */
+.spec { border-top: 2px solid var(--ink); margin: 0; }
+.spec .row { display: grid; grid-template-columns: 200px 1fr; gap: 20px; padding: 20px 4px; border-bottom: 1px solid var(--line); }
+.spec dt { font-weight: 900; letter-spacing: .1em; }
+.spec dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.spec a { color: var(--track-deep); font-weight: 700; }
+.note { font-size: .82rem; color: var(--mute); margin-top: 18px; }
 
-        /* テーブル設定（洗練されたモダンフラットデザイン） */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 25px;
-        }
-        table th, table td {
-            border-bottom: 1px solid #f1f5f9;
-            padding: 18px 20px;
-            text-align: left;
-            font-size: 0.95rem;
-        }
-        table th {
-            background-color: #f8fafc;
-            color: var(--primary-color);
-            width: 26%;
-            font-weight: 700;
-            border-radius: 4px;
-        }
+/* Schedule: タイムテーブル */
+.dark { background: var(--ink); color: #fff; }
+.timetable { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--track); }
+.timetable li { display: grid; grid-template-columns: minmax(130px, 200px) 1fr; gap: 22px; align-items: center; padding: 24px 6px; border-bottom: 1px solid rgba(255,255,255,.14); }
+.timetable .t { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1; letter-spacing: .04em; }
+.timetable .t small { font-size: .5em; color: var(--track); margin-left: 2px; letter-spacing: .1em; }
+.timetable .d { font-weight: 700; font-size: 1.02rem; }
+.timetable .d span { display: block; font-weight: 400; font-size: .85rem; color: #aab4c4; margin-top: 2px; }
+.timetable li.hl .d { color: #fff; }
+.timetable li.hl .t { color: var(--track); }
 
-        /* 当日の流れ（モダンタイムライン） */
-        .timeline {
-            list-style: none;
-            padding: 0;
-            margin-top: 25px;
-        }
-        .timeline li {
-            padding: 18px 20px;
-            border-left: 3px solid #e2e8f0;
-            margin-left: 10px;
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-        .timeline li::before {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 13px;
-            height: 13px;
-            border-radius: 50%;
-            background-color: var(--accent-color);
-            border: 3px solid var(--bg-white);
-        }
-        .timeline .time {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            width: 110px;
-            color: var(--primary-color);
-            font-size: 1.05rem;
-        }
+/* Organizer */
+.org-grid { display: grid; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+.org-photo { position: relative; }
+.org-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; background: #cfd5df; }
+.org-photo::after { content: ''; position: absolute; inset: 14px -14px -14px 14px; border: 3px solid var(--track); z-index: -1; }
+.org-body .univ { font-weight: 700; color: var(--track-deep); letter-spacing: .1em; }
+.org-body h3 { font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 900; margin: 4px 0 2px; letter-spacing: .08em; line-height: 1.3; }
+.org-body .yomi { color: var(--mute); font-size: .9rem; letter-spacing: .12em; margin-bottom: 18px; }
+.org-body p { margin: 0; color: var(--ink-soft); }
 
-        /* 主催者カード */
-        .organizer-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 25px;
-        }
-        .organizer-card {
-            max-width: 380px;
-            width: 100%;
-            border-radius: 16px;
-            overflow: hidden;
-            background: var(--bg-white);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.06);
-            text-align: center;
-            border: 1px solid #f1f5f9;
-        }
-        .organizer-card img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            object-position: top;
-        }
+/* Athletes: ゼッケン型カード */
+.athletes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+.bib { --c: var(--ink); background: var(--white); display: flex; flex-direction: column; transition: transform .3s, box-shadow .3s; box-shadow: 0 6px 20px rgba(14,23,38,.06); }
+.bib:hover { transform: translateY(-5px); box-shadow: 0 18px 36px rgba(14,23,38,.12); }
+.bib.toyo { --c: var(--toyo); } .bib.komazawa { --c: var(--komazawa); } .bib.surugadai { --c: var(--surugadai); } .bib.meiji { --c: var(--meiji); }
+.bib-top { background: var(--c); color: #fff; padding: 18px 26px 16px; display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
+.bib-top .uni-en { font-family: var(--font-display); font-weight: 800; font-size: 2.2rem; line-height: 1; letter-spacing: .12em; text-transform: uppercase; }
+.bib-top .grade { font-weight: 700; font-size: .85rem; letter-spacing: .1em; text-align: right; line-height: 1.5; opacity: .95; }
+.bib-name { padding: 22px 26px 6px; }
+.bib-name h3 { margin: 0; font-size: 1.5rem; font-weight: 900; letter-spacing: .08em; line-height: 1.4; }
+.bib-name .yomi { font-size: .82rem; color: var(--mute); letter-spacing: .12em; }
+.bib-name .uni-ja { font-weight: 700; color: var(--c); font-size: .92rem; margin-top: 6px; }
+.pb { margin: 14px 26px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); border: 1px solid var(--line); }
+.pb div { padding: 12px 14px; border-right: 1px solid var(--line); min-width: 0; }
+.pb div:last-child { border-right: 0; }
+.pb dt { font-family: var(--font-display); font-weight: 700; letter-spacing: .16em; font-size: .78rem; color: var(--mute); text-transform: uppercase; }
+.pb dd { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 1.28rem; letter-spacing: .04em; line-height: 1.35; color: var(--ink); overflow-wrap: anywhere; }
+.pb dd.jp { font-family: var(--font-body); font-size: .92rem; font-weight: 700; }
+.bib-ach { padding: 22px 26px 28px; }
+.bib-ach h4 { margin: 0 0 12px; font-size: .82rem; font-weight: 900; letter-spacing: .18em; color: var(--c); text-transform: uppercase; }
+.bib-ach ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; }
+.bib-ach li { padding-left: 16px; position: relative; font-size: .9rem; color: var(--ink-soft); line-height: 1.75; }
+.bib-ach li::before { content: ''; position: absolute; left: 0; top: .75em; width: 7px; height: 3px; background: var(--c); }
+.race { display: inline-block; font-weight: 900; font-size: .78rem; letter-spacing: .06em; background: var(--paper); color: var(--ink); padding: 1px 9px; margin-right: 6px; }
+.res { font-weight: 700; color: var(--ink); }
 
-        /* OB選手カードグリッド & 大学別カラー */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        .card {
-            border-radius: 16px;
-            overflow: hidden;
-            background: var(--bg-white);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
-            border: 1px solid #f1f5f9;
-        }
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 30px rgba(0,0,0,0.09);
-        }
+/* Entry */
+.entry { background: var(--track); color: #fff; text-align: center; position: relative; overflow: hidden; }
+.entry .sec-en { -webkit-text-stroke-color: rgba(255,255,255,.4); }
+.entry .sec-ja::before { background: #fff; }
+.entry .sec-head { display: flex; flex-direction: column; align-items: center; }
+.entry p { max-width: 36em; margin: 0 auto 34px; font-weight: 500; }
+.btn { display: inline-flex; align-items: center; gap: 14px; background: #fff; color: var(--track-deep); font-weight: 900; font-size: 1.15rem; letter-spacing: .1em; padding: 22px 54px; text-decoration: none; transition: transform .2s, box-shadow .2s, background .2s, color .2s; box-shadow: 0 14px 30px rgba(0,0,0,.2); }
+.btn::after { content: '→'; font-family: var(--font-display); font-size: 1.5rem; transition: transform .2s; }
+.btn:hover { transform: translateY(-3px); background: var(--ink); color: #fff; }
+.btn:hover::after { transform: translateX(4px); }
 
-        /* 各大学のボーダーアクセント */
-        .card.toyo { border-top: 6px solid var(--toyo-color); }
-        .card.komazawa { border-top: 6px solid var(--komazawa-color); }
-        .card.surugadai { border-top: 6px solid var(--surugadai-color); }
-        .card.meiji { border-top: 6px solid var(--meiji-color); }
+/* Contact */
+.contact-card { background: var(--white); padding: clamp(26px, 4vw, 44px); border-left: 6px solid var(--track); }
+.contact-card .spec { border-top: 0; }
+.contact-card .spec .row:last-child { border-bottom: 0; }
 
-        .card-header-info {
-            background-color: #f8fafc;
-            padding: 20px 24px;
-            border-bottom: 1px solid #f1f5f9;
-        }
-        .card-header-info h3 {
-            margin: 0;
-            color: var(--primary-color);
-            font-size: 1.3rem;
-            font-weight: 700;
-        }
+/* Footer */
+footer { background: #080e1a; color: #8b96a8; padding: 40px var(--gutter) 100px; text-align: center; font-size: .82rem; letter-spacing: .08em; }
+footer .brand { display: inline-block; color: #fff; margin-bottom: 10px; }
 
-        /* 大学名表記スタイル */
-        .card.toyo .belong { color: var(--toyo-color); font-weight: 700; font-size: 0.95rem; margin-top: 4px; }
-        .card.komazawa .belong { color: var(--komazawa-color); font-weight: 700; font-size: 0.95rem; margin-top: 4px; }
-        .card.surugadai .belong { color: var(--surugadai-color); font-weight: 700; font-size: 0.95rem; margin-top: 4px; }
-        .card.meiji .belong { color: var(--meiji-color); font-weight: 700; font-size: 0.95rem; margin-top: 4px; }
+/* Floating entry */
+.float-entry { position: fixed; right: 18px; bottom: 18px; z-index: 90; background: var(--track); color: #fff; text-decoration: none; font-family: var(--font-display); font-weight: 800; letter-spacing: .22em; font-size: 1.05rem; padding: 14px 26px; box-shadow: 0 10px 24px rgba(0,0,0,.28); transition: background .2s, transform .2s; }
+.float-entry:hover { background: var(--track-deep); transform: translateY(-2px); }
 
-        .card-content {
-            padding: 24px;
-        }
-        .pb-list {
-            background-color: #f8fafc;
-            padding: 14px 18px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            margin-bottom: 18px;
-            border-left: 4px solid #cbd5e1;
-        }
-        .card.toyo .pb-list { border-left-color: var(--toyo-color); }
-        .card.komazawa .pb-list { border-left-color: var(--komazawa-color); }
-        .card.surugadai .pb-list { border-left-color: var(--surugadai-color); }
-        .card.meiji .pb-list { border-left-color: var(--meiji-color); }
+/* Reveal（JSが動いた場合のみ） */
+.js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+.js .reveal.in { opacity: 1; transform: none; }
 
-        .pb-list strong {
-            color: var(--primary-color);
-        }
-        .achievement-title {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .achievement-list {
-            margin: 0;
-            padding-left: 20px;
-            font-size: 0.88rem;
-            color: #475569;
-        }
-        .achievement-list li {
-            margin-bottom: 10px;
-        }
-        .race-tag {
-            display: inline-block;
-            background-color: #f1f5f9;
-            color: var(--primary-color);
-            font-size: 0.78rem;
-            padding: 2px 10px;
-            border-radius: 6px;
-            font-weight: 700;
-            margin-right: 6px;
-        }
-
-        /* お問い合わせメール */
-        .contact-mail {
-            color: var(--accent-color);
-            font-weight: 700;
-            text-decoration: none;
-        }
-        .contact-mail:hover {
-            text-decoration: underline;
-        }
-
-        /* ななつぼし風洗練された応募ボタン */
-        .btn-apply {
-            display: inline-block;
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            color: #ffffff;
-            padding: 20px 60px;
-            font-size: 1.25rem;
-            font-weight: 900;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.35);
-            letter-spacing: 0.08em;
-        }
-        .btn-apply:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(245, 158, 11, 0.45);
-        }
-        .apply-container {
-            text-align: center;
-            padding: 20px 10px;
-        }
-
-        /* フッター */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: var(--primary-color);
-            color: #94a3b8;
-            margin-top: 100px;
-            font-size: 0.85rem;
-            letter-spacing: 0.05em;
-        }
-
-        /* スマホレスポンシブ対応 */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                text-align: center;
-                gap: 12px;
-            }
-            nav ul {
-                justify-content: center;
-                gap: 10px;
-            }
-            nav a {
-                font-size: 0.82rem;
-                padding: 4px;
-            }
-            .hero-slider {
-                height: 52vh;
-                min-height: 360px;
-            }
-            .hero-content h1 {
-                font-size: 1.6rem;
-            }
-            .hero-content h1 .sub-title-line {
-                font-size: 1.35rem;
-            }
-            .hero-content p {
-                font-size: 1.05rem;
-            }
-            section {
-                margin: 25px 12px;
-                padding: 30px 20px;
-                border-radius: 12px;
-            }
-            .card-grid {
-                grid-template-columns: 1fr;
-            }
-            table th {
-                width: 35%;
-            }
-            .btn-apply {
-                padding: 16px 35px;
-                font-size: 1.1rem;
-            }
-        }
-    </style>
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; min-height: 0; }
+  .hero-visual { order: -1; min-height: 0; aspect-ratio: 4 / 3; }
+  .hero-visual::after { background: linear-gradient(0deg, rgba(14,23,38,.7) 0%, rgba(14,23,38,0) 35%); }
+  .hero-copy { padding: 40px var(--gutter) 70px; }
+  .facts { grid-template-columns: 1fr; margin-top: -28px; }
+  .fact { border-right: 0; border-bottom: 1px solid var(--line); padding: 20px 22px; }
+  .fact:last-child { border-bottom: 0; }
+  .points { grid-template-columns: 1fr; }
+  .athletes { grid-template-columns: 1fr; }
+  .org-grid { grid-template-columns: 1fr; }
+  .org-photo { max-width: 320px; margin-right: 14px; }
+}
+@media (max-width: 820px) {
+  .menu-btn { display: block; }
+  .gnav { position: fixed; inset: 64px 0 auto 0; background: var(--ink); padding: 10px var(--gutter) 26px; transform: translateY(-120%); transition: transform .3s ease; border-bottom: 3px solid var(--track); }
+  .gnav.open { transform: none; }
+  .gnav ul { flex-direction: column; gap: 0; }
+  .gnav a { display: block; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,.12); font-size: 1.1rem; }
+}
+@media (max-width: 560px) {
+  .brand { font-size: .9rem; letter-spacing: .06em; }
+  .news-list li { grid-template-columns: 1fr; gap: 2px; }
+  .spec .row { grid-template-columns: 1fr; gap: 4px; }
+  .timetable li { grid-template-columns: 1fr; gap: 6px; }
+  .btn { padding: 18px 30px; font-size: 1.02rem; width: 100%; justify-content: center; }
+  .float-entry { right: 12px; bottom: 12px; padding: 12px 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .slide, .js .reveal, .bib, .btn { transition: none; }
+}
+</style>
 </head>
 <body>
 
-    <!-- ヘッダー（ナビゲーション） -->
-    <header>
-        <div class="header-container">
-            <p class="header-title">伊賀白鳳高校 23年卒OB ランニングイベント</p>
-            <nav>
-                <ul>
-                    <li><a href="#about">イベント情報</a></li>
-                    <li><a href="#contact">運営元連絡先</a></li>
-                    <li><a href="#organizer">主催者</a></li>
-                    <li><a href="#schedule">当日の流れ</a></li>
-                    <li><a href="#athletes">参加OB選手</a></li>
-                    <li><a href="#apply">お申し込み</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<!-- Header -->
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top">Iga Hakuho <b>OB</b> Running</a>
+    <button class="menu-btn" id="menuBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="gnav"><span></span><span></span><span></span></button>
+    <nav class="gnav" id="gnav" aria-label="メインメニュー">
+      <ul>
+        <li><a href="#news">News</a></li>
+        <li><a href="#about">Info</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#athletes">Athletes</a></li>
+        <li><a href="#organizer">Organizer</a></li>
+        <li><a href="#entry">Entry</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-    <!-- 15秒自動切り替えスライダー -->
-    <div class="hero-slider">
-        <div class="slide active" style="background-image: url('https://github.com/user-attachments/assets/bd058cdc-9978-4ec1-afab-8caebe05635c');"></div>
-        <div class="slide" style="background-image: url('https://github.com/user-attachments/assets/6b486f94-cb59-4365-bced-ab18cbd034c6');"></div>
-        <div class="slide" style="background-image: url('https://github.com/user-attachments/assets/06540e3d-c217-4e20-88fc-b14f46b5483c');"></div>
-        <div class="slide" style="background-image: url('https://github.com/user-attachments/assets/f8d02b5f-be84-48ac-a684-87f5b850df4a');"></div>
-        
-        <div class="hero-overlay"></div>
+<main id="top">
 
-        <div class="hero-content">
-            <h1>
-                伊賀白鳳高校陸上部OB
-                <span class="sub-title-line">ランニングイベント2027</span>
-            </h1>
-            <p>すべては感動のために</p>
-        </div>
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="hero-kicker">Iga Hakuho High School Track &amp; Field OB</div>
+      <h1>伊賀白鳳高校陸上部OB<em>ランニングイベント2027</em></h1>
+      <p class="hero-tagline">すべては感動のために</p>
+      <div class="hero-date">
+        <div class="big">3.7<small>SAT</small></div>
+        <div class="meta"><strong>2027年3月7日（土）</strong>9:00 – 12:00 ／ 受付 8:30〜<br>三重県内 陸上競技場</div>
+      </div>
+    </div>
+    <div class="hero-visual" id="slider" aria-label="イベントの写真">
+      <div class="slide active" style="background-image:url('https://github.com/user-attachments/assets/bd058cdc-9978-4ec1-afab-8caebe05635c')"></div>
+      <div class="slide" style="background-image:url('https://github.com/user-attachments/assets/6b486f94-cb59-4365-bced-ab18cbd034c6')"></div>
+      <div class="slide" style="background-image:url('https://github.com/user-attachments/assets/06540e3d-c217-4e20-88fc-b14f46b5483c')"></div>
+      <div class="slide" style="background-image:url('https://github.com/user-attachments/assets/f8d02b5f-be84-48ac-a684-87f5b850df4a')"></div>
+      <div class="dots">
+        <button class="dot active" aria-label="1枚目を表示"></button>
+        <button class="dot" aria-label="2枚目を表示"></button>
+        <button class="dot" aria-label="3枚目を表示"></button>
+        <button class="dot" aria-label="4枚目を表示"></button>
+      </div>
+    </div>
+  </div>
+  <div class="lanes" aria-hidden="true"></div>
+</div>
 
-        <div class="slider-dots">
-            <span class="dot active" onclick="setSlide(0)"></span>
-            <span class="dot" onclick="setSlide(1)"></span>
-            <span class="dot" onclick="setSlide(2)"></span>
-            <span class="dot" onclick="setSlide(3)"></span>
-        </div>
+<!-- Key facts -->
+<div class="wrap">
+  <div class="facts reveal">
+    <div class="fact"><div class="k">Date</div><div class="v">3月7日(土)<small>9:00〜12:00（受付 8:30〜）</small></div></div>
+    <div class="fact"><div class="k">Place</div><div class="v">三重県内 陸上競技場<small>詳細な場所が入ります</small></div></div>
+    <div class="fact"><div class="k">Entry fee</div><div class="v">無料（または〇〇円）<small>小・中学生、高校生、市民ランナー</small></div></div>
+  </div>
+</div>
+
+<!-- News -->
+<section id="news">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-en">News</span><span class="sec-ja">新着情報</span></div>
+    <ul class="news-list reveal">
+      <li><time datetime="2026-11-11">2026.11.11</time><p>ランニングイベント2027の特設ページを公開しました。</p></li>
+      <li><time datetime="2026-11-11">2026.11.XX</time><p>参加者の募集を開始します。お申し込みは下記「Entry」から。（日付と内容は差し替えてください）</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- Points -->
+<section id="about" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-en">Event Info</span><span class="sec-ja">イベントについて</span></div>
+    <p class="lead reveal">地元三重県への恩返しと次世代ランナーの育成を目的に、伊賀白鳳高校陸上部23年卒OBによるランニング教室を開催いたします。走りの基本から大会に向けたアドバイスまで、現役大学生ランナーが直接指導します。</p>
+
+    <div class="points">
+      <article class="point reveal"><div class="tag">POINT 01</div><h3>走りの基本から、動き作りまで</h3><p>ウォーミングアップと動き作りの指導から始め、フォームを現役の大学ランナーが一人ひとり見ていきます。</p></article>
+      <article class="point reveal"><div class="tag">POINT 02</div><h3>レベル別のランニングセッション</h3><p>初めての方も、大会を目指す方も。レベルに合わせたセッションで、それぞれの課題に取り組みます。</p></article>
+      <article class="point reveal"><div class="tag">POINT 03</div><h3>OB選手と一緒に走る</h3><p>箱根駅伝や三大駅伝を走った選手たちと、同じ時間に同じトラックを走るスペシャルセッションがあります。</p></article>
     </div>
 
-    <!-- 1. イベント情報 -->
-    <section id="about">
-        <div class="section-header">
-            <span class="section-en">EVENT INFO</span>
-            <h2>ランニングイベント情報</h2>
+    <dl class="spec reveal" style="margin-top:56px">
+      <div class="row"><dt>イベント名</dt><dd>伊賀白鳳高校陸上部OB ランニングイベント2027</dd></div>
+      <div class="row"><dt>日時</dt><dd>3月7日(土) 9:00〜12:00（受付開始 8:30〜）</dd></div>
+      <div class="row"><dt>会場</dt><dd>三重県内 陸上競技場（詳細な場所が入ります）</dd></div>
+      <div class="row"><dt>対象</dt><dd>小・中学生、高校生、市民ランナーの皆様</dd></div>
+      <div class="row"><dt>持ち物</dt><dd>走れる服装、ランニングシューズ、飲み物、タオル</dd></div>
+      <div class="row"><dt>参加費</dt><dd>無料（または〇〇円）</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- Schedule -->
+<section id="schedule" class="dark">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-en">Schedule</span><span class="sec-ja">イベント当日の流れ</span></div>
+    <ol class="timetable reveal">
+      <li><div class="t">08:30<small>〜</small></div><div class="d">受付開始</div></li>
+      <li><div class="t">09:00<small>〜</small></div><div class="d">開会式・ウォーミングアップ・動き作り指導</div></li>
+      <li><div class="t">09:45<small>〜</small></div><div class="d">レベル別ランニングセッション / フォーム指導</div></li>
+      <li class="hl"><div class="t">11:00<small>〜</small></div><div class="d">OB選手と一緒に走るスペシャルセッション</div></li>
+      <li><div class="t">11:30<small>〜</small></div><div class="d">質問コーナー・写真撮影・閉会式</div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- Athletes -->
+<section id="athletes">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-en">Athletes</span><span class="sec-ja">参加OB選手紹介</span></div>
+    <p class="lead reveal">伊賀白鳳高校23年卒のメンバーが集結します。現役の大学陸上界で活躍する選手たちから、直接アドバイスを受けることができます。</p>
+
+    <div class="athletes">
+
+      <article class="bib toyo reveal">
+        <div class="bib-top"><div class="uni-en">Toyo</div><div class="grade">総合情報学部<br>3年</div></div>
+        <div class="bib-name"><h3>倉本 晃羽</h3><div class="yomi">くらもと あきは</div><div class="uni-ja">東洋大学</div></div>
+        <dl class="pb">
+          <div><dt>5000m</dt><dd>14:09.26</dd></div>
+          <div><dt>10000m</dt><dd>29:24.55</dd></div>
+          <div><dt>Half</dt><dd>1:02:57</dd></div>
+        </dl>
+        <div class="bib-ach">
+          <h4>Highlights</h4>
+          <ul>
+            <li>東洋大学の主力選手層の一角として、長距離部門で頭角を現しチームの上位層を支える。</li>
+            <li><span class="race">第58回 全日本大学駅伝</span><span class="res">6区（12.8km）38分14秒（区間11位）</span><br>長距離区間の6区で粘りの走りを見せ、安定したペースを刻む。</li>
+          </ul>
         </div>
-        <p>地元三重県への恩返しと次世代ランナーの育成を目的に、伊賀白鳳高校陸上部23年卒OBによるランニング教室を開催いたします。走りの基本から大会に向けたアドバイスまで、現役大学生ランナーが直接指導します！</p>
-        <table>
-            <tr>
-                <th>イベント名</th>
-                <td>伊賀白鳳高校陸上部OB ランニングイベント2027</td>
-            </tr>
-            <tr>
-                <th>日時</th>
-                <td>3月7日(土) 9:00〜12:00（受付開始 8:30〜）</td>
-            </tr>
-            <tr>
-                <th>会場</th>
-                <td>三重県内 陸上競技場（詳細な場所が入ります）</td>
-            </tr>
-            <tr>
-                <th>対象</th>
-                <td>小・中学生、高校生、市民ランナーの皆様</td>
-            </tr>
-            <tr>
-                <th>持ち物</th>
-                <td>走れる服装、ランニングシューズ、飲み物、タオル</td>
-            </tr>
-            <tr>
-                <th>参加費</th>
-                <td>無料（または〇〇円）</td>
-            </tr>
-        </table>
-    </section>
+      </article>
 
-    <!-- 2. 大会運営元・連絡先情報 -->
-    <section id="contact">
-        <div class="section-header">
-            <span class="section-en">CONTACT</span>
-            <h2>大会運営元・お問い合わせ</h2>
+      <article class="bib komazawa reveal">
+        <div class="bib-top"><div class="uni-en">Komazawa</div><div class="grade">経営学部<br>3年</div></div>
+        <div class="bib-name"><h3>島子 公佑</h3><div class="yomi">しまこ こうすけ</div><div class="uni-ja">駒澤大学</div></div>
+        <dl class="pb">
+          <div><dt>5000m</dt><dd>13:29.78</dd></div>
+          <div><dt>10000m</dt><dd class="jp">28分台<br>（東海大記録会等）</dd></div>
+        </dl>
+        <div class="bib-ach">
+          <h4>Highlights</h4>
+          <ul>
+            <li>高校時代は三重県高校駅伝4区で区間賞を獲得。</li>
+            <li><span class="race">第36回 出雲駅伝</span><span class="res">5区（6.4km）18分25秒（区間2位）</span><br>三大駅伝初出走で2位をキープし、総合準優勝に大きく貢献。</li>
+            <li><span class="race">第56回 全日本大学駅伝</span><span class="res">1区（9.5km）28分25秒（区間14位／首位差7秒）</span><br>地元三重県を通る1区を担当し、ラスト200mの混戦で集団に食らいつく力走。</li>
+          </ul>
         </div>
-        <p>イベントに関する質問、取材のお申し込み、協賛についてのお問い合わせは下記運営事務局までご連絡ください。</p>
-        <table>
-            <tr>
-                <th>運営団体</th>
-                <td>伊賀白鳳高校陸上部23年卒OB ランニングイベント実行委員会</td>
-            </tr>
-            <tr>
-                <th>代表責任者</th>
-                <td>鈴木 千翔（青山学院大学 陸上競技部）</td>
-            </tr>
-            <tr>
-                <th>所在地・活動拠点</th>
-                <td>三重県伊賀市</td>
-            </tr>
-            <tr>
-                <th>メールアドレス</th>
-                <td><a href="mailto:example@email.com" class="contact-mail">example@email.com</a></td>
-            </tr>
-            <tr>
-                <th>電話番号</th>
-                <td>090-XXXX-XXXX</td>
-            </tr>
-        </table>
-    </section>
+      </article>
 
-    <!-- 3. 主催者紹介 -->
-    <section id="organizer">
-        <div class="section-header">
-            <span class="section-en">ORGANIZER</span>
-            <h2>主催者紹介</h2>
+      <article class="bib surugadai reveal">
+        <div class="bib-top"><div class="uni-en">Surugadai</div><div class="grade">スポーツ科学部<br>4年</div></div>
+        <div class="bib-name"><h3>古橋 希翁</h3><div class="yomi">ふるはし まれお</div><div class="uni-ja">駿河台大学</div></div>
+        <dl class="pb">
+          <div><dt>5000m</dt><dd>13:51.03</dd></div>
+          <div><dt>10000m</dt><dd>28:19.45</dd></div>
+          <div><dt>Half</dt><dd>1:02:13</dd></div>
+        </dl>
+        <div class="bib-ach">
+          <h4>Highlights</h4>
+          <ul>
+            <li>駿河台大学のエース格としてチームを牽引。第102回箱根駅伝では関東学生連合チームの2区を担当。</li>
+            <li><span class="race">第103回 箱根駅伝予選会</span><span class="res">ハーフマラソン 1時間02分40秒（個人17位／日本人上位）</span><br>チーム内2番手として予選会上位でフィニッシュ。</li>
+            <li><span class="race">第100回 箱根駅伝 本大会</span><span class="res">3区（21.4km）1時間04分11秒（区間18位）</span></li>
+          </ul>
         </div>
-        <div class="organizer-container">
-            <div class="organizer-card">
-                <img src="https://github.com/user-attachments/assets/c37e14f4-1a98-4d36-8695-bf669c77403d" alt="鈴木千翔">
-                <div class="card-content">
-                    <h3>鈴木 千翔（すずき かずと）</h3>
-                    <p><strong>青山学院大学 陸上競技部</strong></p>
-                    <p>伊賀白鳳高校 23年卒。地元三重県の皆様と一緒に走れることを楽しみにしています！</p>
-                </div>
-            </div>
+      </article>
+
+      <article class="bib meiji reveal">
+        <div class="bib-top"><div class="uni-en">Meiji</div><div class="grade">経営学部<br>4年</div></div>
+        <div class="bib-name"><h3>小林 周太郎</h3><div class="yomi">こばやし しゅうたろう</div><div class="uni-ja">明治大学</div></div>
+        <dl class="pb">
+          <div><dt>5000m</dt><dd>14:20.72</dd></div>
+          <div><dt>10000m</dt><dd>31:32.91</dd></div>
+          <div><dt>Half</dt><dd>1:04:30</dd></div>
+        </dl>
+        <div class="bib-ach">
+          <h4>Highlights</h4>
+          <ul>
+            <li>明治大学競走部で4年間主軸としてチームをリード。上尾シティハーフ等でも自己ベストを更新する勝負強さを発揮。</li>
+            <li><span class="race">関東インカレ 男子1部 3000m障害</span><span class="res">予選 8分55秒70（2着・決勝進出）/ 決勝 8分54秒06（11位）</span><br>タフなレースで1部残留に向け貢献。</li>
+          </ul>
         </div>
-    </section>
+      </article>
 
-    <!-- 4. 当日の流れ -->
-    <section id="schedule">
-        <div class="section-header">
-            <span class="section-en">SCHEDULE</span>
-            <h2>イベント当日の流れ</h2>
-        </div>
-        <ul class="timeline">
-            <li>
-                <span class="time">08:30〜</span>
-                <span>受付開始</span>
-            </li>
-            <li>
-                <span class="time">09:00〜</span>
-                <span>開会式・ウォーミングアップ・動き作り指導</span>
-            </li>
-            <li>
-                <span class="time">09:45〜</span>
-                <span>レベル別ランニングセッション / フォーム指導</span>
-            </li>
-            <li>
-                <span class="time">11:00〜</span>
-                <span>OB選手と一緒に走るスペシャルセッション</span>
-            </li>
-            <li>
-                <span class="time">11:30〜</span>
-                <span>質問コーナー・写真撮影・閉会式</span>
-            </li>
-        </ul>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- 5. 参加OB選手紹介（大学別カラー） -->
-    <section id="athletes">
-        <div class="section-header">
-            <span class="section-en">ATHLETES</span>
-            <h2>参加OB選手紹介</h2>
-        </div>
-        <p>伊賀白鳳高校23年卒の豪華メンバーが集結します！現役の大学陸上界で活躍する選手たちから直接アドバイスを受けることができます。</p>
-        
-        <div class="card-grid">
-            
-            <!-- 東洋大学・倉本選手 -->
-            <div class="card toyo">
-                <div class="card-header-info">
-                    <h3>倉本 晃羽（くらもと こうは）</h3>
-                    <div class="belong">東洋大学 総合情報学部 3年</div>
-                </div>
-                <div class="card-content">
-                    <div class="pb-list">
-                        <strong>自己ベスト：</strong><br>
-                        5000m: 14分09秒26 / 10000m: 29分24秒55<br>
-                        ハーフマラソン: 1時間02分57秒
-                    </div>
-                    <div class="achievement-title">🏃‍♂️ 主な実績・駅伝記録</div>
-                    <ul class="achievement-list">
-                        <li>東洋大学の主力選手層の一角として、長距離部門で頭角を現しチームの上位層を支える。</li>
-                        <li><span class="race-tag">第58回 全日本大学駅伝</span> 6区（12.8km）38分14秒（区間11位）<br>長距離区間の6区で粘りの走りを見せ、安定したペースを刻む。</li>
-                    </ul>
-                </div>
-            </div>
+<!-- Organizer -->
+<section id="organizer" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-en">Organizer</span><span class="sec-ja">主催者紹介</span></div>
+    <div class="org-grid reveal">
+      <div class="org-photo"><img src="https://github.com/user-attachments/assets/c37e14f4-1a98-4d36-8695-bf669c77403d" alt="鈴木千翔"></div>
+      <div class="org-body">
+        <div class="univ">青山学院大学 陸上競技部</div>
+        <h3>鈴木 千翔</h3>
+        <div class="yomi">すずき かずと</div>
+        <p>伊賀白鳳高校 23年卒。地元三重県の皆様と一緒に走れることを楽しみにしています。</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <!-- 駒澤大学・島子選手 -->
-            <div class="card komazawa">
-                <div class="card-header-info">
-                    <h3>島子 公佑（しまこ こうすけ）</h3>
-                    <div class="belong">駒澤大学 経営学部 3年</div>
-                </div>
-                <div class="card-content">
-                    <div class="pb-list">
-                        <strong>自己ベスト：</strong><br>
-                        5000m: 13分29秒78 / 10000m: 28分台（東海大記録会等）
-                    </div>
-                    <div class="achievement-title">🏃‍♂️ 主な実績・駅伝記録</div>
-                    <ul class="achievement-list">
-                        <li>高校時代は三重県高校駅伝4区で区間賞を獲得。</li>
-                        <li><span class="race-tag">第36回 出雲駅伝</span> 5区（6.4km）18分25秒（区間2位）<br>三大駅伝初出走で2位をキープし、総合準優勝に大きく貢献。</li>
-                        <li><span class="race-tag">第56回 全日本大学駅伝</span> 1区（9.5km）28分25秒（区間14位／首位差7秒）<br>地元三重県を通る1区を担当し、ラスト200mの混戦で集団に食らいつく力走。</li>
-                    </ul>
-                </div>
-            </div>
+<!-- Entry -->
+<section id="entry" class="entry">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-en">Entry</span><span class="sec-ja">参加者応募</span></div>
+    <p class="reveal">イベントへのご参加は、下記のフォームからお申し込みください。定員に達し次第、締め切ります。</p>
+    <a class="btn reveal" href="https://forms.google.com/" target="_blank" rel="noopener">参加申し込みフォーム</a>
+  </div>
+</section>
 
-            <!-- 駿河台大学・古橋選手 -->
-            <div class="card surugadai">
-                <div class="card-header-info">
-                    <h3>古橋 希翁（ふるはし きお）</h3>
-                    <div class="belong">駿河台大学 スポーツ科学部 4年</div>
-                </div>
-                <div class="card-content">
-                    <div class="pb-list">
-                        <strong>自己ベスト：</strong><br>
-                        5000m: 13分51秒03 / 10000m: 28分19秒45<br>
-                        ハーフマラソン: 1時間02分13秒
-                    </div>
-                    <div class="achievement-title">🏃‍♂️ 主な実績・駅伝記録</div>
-                    <ul class="achievement-list">
-                        <li>駿河台大学のエース格としてチームを牽引。第102回箱根駅伝では関東学生連合チームの2区を担当。</li>
-                        <li><span class="race-tag">第103回 箱根駅伝予選会</span> ハーフマラソン 1時間02分40秒（個人17位／日本人上位）<br>チーム内2番手として予選会上位でフィニッシュ。</li>
-                        <li><span class="race-tag">第100回 箱根駅伝 本大会</span> 3区（21.4km）1時間04分11秒（区間18位）</li>
-                    </ul>
-                </div>
-            </div>
+<!-- Contact -->
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-en">Contact</span><span class="sec-ja">大会運営元・お問い合わせ</span></div>
+    <p class="lead reveal">イベントに関するご質問、取材のお申し込み、協賛についてのお問い合わせは、運営事務局までご連絡ください。</p>
+    <div class="contact-card reveal">
+      <dl class="spec">
+        <div class="row"><dt>運営団体</dt><dd>伊賀白鳳高校陸上部23年卒OB ランニングイベント実行委員会</dd></div>
+        <div class="row"><dt>代表責任者</dt><dd>鈴木 千翔（青山学院大学 陸上競技部）</dd></div>
+        <div class="row"><dt>所在地・活動拠点</dt><dd>三重県伊賀市</dd></div>
+        <div class="row"><dt>メールアドレス</dt><dd><a href="mailto:example@email.com">example@email.com</a></dd></div>
+        <div class="row"><dt>電話番号</dt><dd>090-XXXX-XXXX</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
 
-            <!-- 明治大学・小林選手 -->
-            <div class="card meiji">
-                <div class="card-header-info">
-                    <h3>小林 周太郎（こばやし しゅうたろう）</h3>
-                    <div class="belong">明治大学 経営学部 4年</div>
-                </div>
-                <div class="card-content">
-                    <div class="pb-list">
-                        <strong>自己ベスト：</strong><br>
-                        5000m: 14分20秒72 / 10000m: 31分32秒91<br>
-                        ハーフマラソン: 1時間04分30秒
-                    </div>
-                    <div class="achievement-title">🏃‍♂️ 主な実績・駅伝記録</div>
-                    <ul class="achievement-list">
-                        <li>明治大学競走部で4年間主軸としてチームをリード。上尾シティハーフ等でも自己ベストを更新する勝負強さを発揮。</li>
-                        <li><span class="race-tag">関東インカレ</span> 男子1部 3000m障害（3000mSC）<br>予選 8分55秒70（2着・決勝進出）/ 決勝 8分54秒06（11位）<br>タフなレースで1部残留に向け貢献。</li>
-                    </ul>
-                </div>
-            </div>
+</main>
 
-        </div>
-    </section>
+<footer>
+  <a class="brand" href="#top">Iga Hakuho <b>OB</b> Running</a>
+  <p>&copy; 2027 23年卒 伊賀白鳳高校陸上部OB ランニングイベント実行委員会</p>
+</footer>
 
-    <!-- 6. 参加者応募 -->
-    <section id="apply">
-        <div class="section-header" style="text-align: center;">
-            <span class="section-en">ENTRY</span>
-            <h2 style="display: block;">参加者応募</h2>
-        </div>
-        <div class="apply-container">
-            <p style="margin-bottom: 30px;">イベントへのご参加はこちらのフォームよりお申し込みください。（定員に達し次第締め切ります）</p>
-            <a href="https://forms.google.com/" target="_blank" class="btn-apply">参加申し込みフォームはこちら</a>
-        </div>
-    </section>
+<a class="float-entry" href="#entry">ENTRY</a>
 
-    <footer>
-        <p>&copy; 2027 23年卒 伊賀白鳳高校陸上部OB ランニングイベント実行委員会</p>
-    </footer>
+<script>
+document.documentElement.classList.add('js');
 
-    <!-- スライダー切替用JavaScript -->
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-        const intervalTime = 15000;
-        let slideInterval;
+/* スライダー（15秒ごとに切り替え） */
+(function () {
+  var slides = document.querySelectorAll('.slide');
+  var dots = document.querySelectorAll('.dot');
+  var current = 0, timer;
+  function show(i) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = i;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+  function start() { clearInterval(timer); timer = setInterval(function () { show((current + 1) % slides.length); }, 15000); }
+  dots.forEach(function (d, i) { d.addEventListener('click', function () { show(i); start(); }); });
+  start();
+})();
 
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active');
-                dots[i].classList.remove('active');
-            });
-            slides[index].classList.add('active');
-            dots[index].classList.add('active');
-            currentSlide = index;
-        }
+/* モバイルメニュー */
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('gnav');
+  function set(open) {
+    nav.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+  }
+  btn.addEventListener('click', function () { set(!nav.classList.contains('open')); });
+  nav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+})();
 
-        function nextSlide() {
-            let next = (currentSlide + 1) % slides.length;
-            showSlide(next);
-        }
-
-        function setSlide(index) {
-            showSlide(index);
-            resetTimer();
-        }
-
-        function resetTimer() {
-            clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, intervalTime);
-        }
-
-        slideInterval = setInterval(nextSlide, intervalTime);
-    </script>
+/* スクロール時のフェードイン */
+(function () {
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function (e) { io.observe(e); });
+})();
+</script>
 </body>
 </html>
