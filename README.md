@@ -15,7 +15,7 @@
         }
 
         html {
-            scroll-behavior: smooth; /* タブをクリックした時に滑らかにスクロール */
+            scroll-behavior: smooth;
         }
 
         body {
@@ -27,7 +27,7 @@
             background-color: var(--bg-color);
         }
 
-        /* ヘッダー・ナビゲーション（上部固定メニュー） */
+        /* ヘッダー・ナビゲーション */
         header {
             background-color: var(--primary-color);
             color: var(--white);
@@ -119,6 +119,7 @@
             max-width: 900px;
         }
 
+        /* 2段に分けたタイトル（OBで区切り） */
         .hero-content h1 {
             font-size: 2.5rem;
             margin-bottom: 15px;
@@ -130,6 +131,14 @@
             -webkit-text-fill-color: transparent;
             animation: shineText 5s ease infinite;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            line-height: 1.3;
+        }
+
+        /* 2段目の文字サイズ調整 */
+        .hero-content h1 .sub-title-line {
+            display: block;
+            font-size: 2.2rem;
+            margin-top: 5px;
         }
 
         @keyframes shineText {
@@ -187,7 +196,7 @@
             margin-bottom: 25px;
         }
 
-        /* テーブル設定（イベント概要・連絡先情報用） */
+        /* テーブル設定 */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -245,7 +254,7 @@
             object-position: top;
         }
 
-        /* カードグリッド（OB選手用） */
+        /* カードグリッド */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -281,7 +290,6 @@
             font-size: 0.95rem;
         }
 
-        /* 連絡先エリア（お問い合わせリンク） */
         .contact-mail {
             color: var(--accent-color);
             font-weight: bold;
@@ -344,7 +352,10 @@
                 min-height: 350px;
             }
             .hero-content h1 {
-                font-size: 1.6rem;
+                font-size: 1.5rem;
+            }
+            .hero-content h1 .sub-title-line {
+                font-size: 1.3rem;
             }
             .hero-content p {
                 font-size: 1.05rem;
@@ -387,8 +398,12 @@
         
         <div class="hero-overlay"></div>
 
+        <!-- キャッチコピー（OBで区切った2段表示） -->
         <div class="hero-content">
-            <h1>伊賀白鳳高校陸上部OB ランニングイベント2027</h1>
+            <h1>
+                伊賀白鳳高校陸上部OB
+                <span class="sub-title-line">ランニングイベント2027</span>
+            </h1>
             <p>すべては感動のために</p>
         </div>
 
@@ -400,7 +415,7 @@
         </div>
     </div>
 
-    <!-- 1. イベント情報 (最初のメインセクション) -->
+    <!-- 1. イベント情報 -->
     <section id="about">
         <h2>ランニングイベント情報</h2>
         <p>地元三重県への恩返しと次世代ランナーの育成を目的に、伊賀白鳳高校陸上部23年卒OBによるランニング教室を開催いたします。走りの基本から大会に向けたアドバイスまで、現役大学生ランナーが直接指導します！</p>
