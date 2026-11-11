@@ -119,7 +119,7 @@
             max-width: 900px;
         }
 
-        /* 2段に分けたタイトル（OBで区切り） */
+        /* 2段タイトル */
         .hero-content h1 {
             font-size: 2.5rem;
             margin-bottom: 15px;
@@ -134,7 +134,6 @@
             line-height: 1.3;
         }
 
-        /* 2段目の文字サイズ調整 */
         .hero-content h1 .sub-title-line {
             display: block;
             font-size: 2.2rem;
@@ -254,40 +253,82 @@
             object-position: top;
         }
 
-        /* カードグリッド */
+        /* OB選手カードグリッド */
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
             gap: 25px;
             margin-top: 25px;
         }
         .card {
             border: 1px solid #e2e8f0;
-            border-radius: 8px;
+            border-radius: 10px;
             overflow: hidden;
             background: var(--white);
             transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.08);
         }
-        .card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
+        .card-header-info {
+            background-color: #f1f5f9;
+            padding: 15px 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .card-header-info h3 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 1.25rem;
+        }
+        .card-header-info .belong {
+            font-size: 0.95rem;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-top: 4px;
         }
         .card-content {
             padding: 20px;
         }
-        .card-content h3 {
-            margin: 0 0 8px 0;
-            color: var(--primary-color);
-            font-size: 1.15rem;
+        .pb-list {
+            background-color: #f8fafc;
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--accent-color);
         }
-        .card-content p {
-            margin: 6px 0;
+        .pb-list strong {
+            color: var(--primary-color);
+        }
+        .achievement-title {
             font-size: 0.95rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .achievement-list {
+            margin: 0;
+            padding-left: 18px;
+            font-size: 0.88rem;
+            color: #475569;
+        }
+        .achievement-list li {
+            margin-bottom: 8px;
+        }
+        .race-tag {
+            display: inline-block;
+            background-color: #e2e8f0;
+            color: var(--primary-color);
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-right: 4px;
         }
 
         .contact-mail {
@@ -364,6 +405,9 @@
                 margin: 20px 10px;
                 padding: 25px 15px;
             }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
             table th {
                 width: 35%;
             }
@@ -398,7 +442,6 @@
         
         <div class="hero-overlay"></div>
 
-        <!-- キャッチコピー（OBで区切った2段表示） -->
         <div class="hero-content">
             <h1>
                 伊賀白鳳高校陸上部OB
@@ -462,15 +505,15 @@
             </tr>
             <tr>
                 <th>所在地・活動拠点</th>
-                <td>三重県伊賀市（またはご指定の住所・地域）</td>
+                <td>三重県伊賀市</td>
             </tr>
             <tr>
                 <th>メールアドレス</th>
-                <td><a href="mailto:example@email.com" class="contact-mail">example@email.com</a>（※ご指定のアドレスに変更してください）</td>
+                <td><a href="mailto:example@email.com" class="contact-mail">example@email.com</a></td>
             </tr>
             <tr>
                 <th>電話番号</th>
-                <td>090-XXXX-XXXX（※必要な場合のみ記入）</td>
+                <td>090-XXXX-XXXX</td>
             </tr>
         </table>
     </section>
@@ -520,24 +563,91 @@
     <!-- 5. 参加OB選手紹介 -->
     <section id="athletes">
         <h2>参加OB選手紹介</h2>
-        <p>伊賀白鳳高校23年卒の豪華メンバーが集結します！</p>
+        <p>伊賀白鳳高校23年卒の豪華メンバーが集結します！現役の大学陸上界で活躍する選手たちから直接アドバイスを受けることができます。</p>
+        
         <div class="card-grid">
+            
+            <!-- 1. 倉本 晃羽 選手 -->
             <div class="card">
-                <img src="IMG_9443.jpg" alt="OB選手1">
+                <div class="card-header-info">
+                    <h3>倉本 晃羽（くらもと あきは）</h3>
+                    <div class="belong">東洋大学 総合情報学部 3年</div>
+                </div>
                 <div class="card-content">
-                    <h3>選手のお名前 A</h3>
-                    <p><strong>〇〇大学 陸上競技部</strong></p>
-                    <p>自己ベスト：5000m 〇分〇秒</p>
+                    <div class="pb-list">
+                        <strong>自己ベスト：</strong><br>
+                        5000m: 14分09秒26 / 10000m: 29分24秒55<br>
+                        ハーフマラソン: 1時間02分57秒
+                    </div>
+                    <div class="achievement-title">🏃‍♂️ 主な実績・駅伝記録</div>
+                    <ul class="achievement-list">
+                        <li>東洋大学の主力選手層の一角として、長距離部門で頭角を現しチームの上位層を支える。</li>
+                        <li><span class="race-tag">第58回 全日本大学駅伝</span> 6区（12.8km）38分14秒（区間11位）<br>長距離区間の6区で粘りの走りを見せ、安定したペースを刻む。</li>
+                    </ul>
                 </div>
             </div>
+
+            <!-- 2. 島子 公佑 選手 -->
             <div class="card">
-                <img src="IMG_9439.jpg" alt="OB選手2">
+                <div class="card-header-info">
+                    <h3>島子 公佑（しまこ こうすけ）</h3>
+                    <div class="belong">駒澤大学 経営学部 3年</div>
+                </div>
                 <div class="card-content">
-                    <h3>選手のお名前 B</h3>
-                    <p><strong>〇〇大学 陸上競技部</strong></p>
-                    <p>自己ベスト：10000m 〇分〇秒</p>
+                    <div class="pb-list">
+                        <strong>自己ベスト：</strong><br>
+                        5000m: 13分29秒78 / 10000m: 28分台（東海大記録会等）
+                    </div>
+                    <div class="achievement-title">🏃‍♂️ 主な実績・駅伝記録</div>
+                    <ul class="achievement-list">
+                        <li>高校時代は三重県高校駅伝4区で区間賞を獲得。</li>
+                        <li><span class="race-tag">第36回 出雲駅伝</span> 5区（6.4km）18分25秒（区間2位）<br>三大駅伝初出走で2位をキープし、総合準優勝に大きく貢献。</li>
+                        <li><span class="race-tag">第56回 全日本大学駅伝</span> 1区（9.5km）28分25秒（区間14位／首位差7秒）<br>地元三重県を通る1区を担当し、ラスト200mの混戦で集団に食らいつく力走。</li>
+                    </ul>
                 </div>
             </div>
+
+            <!-- 3. 古橋 希翁 選手 -->
+            <div class="card">
+                <div class="card-header-info">
+                    <h3>古橋 希翁（ふるはし まれお）</h3>
+                    <div class="belong">駿河台大学 スポーツ科学部 4年</div>
+                </div>
+                <div class="card-content">
+                    <div class="pb-list">
+                        <strong>自己ベスト：</strong><br>
+                        5000m: 13分51秒03 / 10000m: 28分19秒45<br>
+                        ハーフマラソン: 1時間02分13秒
+                    </div>
+                    <div class="achievement-title">🏃‍♂️ 主な実績・駅伝記録</div>
+                    <ul class="achievement-list">
+                        <li>駿河台大学のエース格としてチームを牽引。第102回箱根駅伝では関東学生連合チームの2区を担当。</li>
+                        <li><span class="race-tag">第103回 箱根駅伝予選会</span> ハーフマラソン 1時間02分40秒（個人17位／日本人上位）<br>チーム内2番手として予選会上位でフィニッシュ。</li>
+                        <li><span class="race-tag">第100回 箱根駅伝 本大会</span> 3区（21.4km）1時間04分11秒（区間18位）</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 4. 小林 周太郎 選手 -->
+            <div class="card">
+                <div class="card-header-info">
+                    <h3>小林 周太郎（こばやし しゅうたろう）</h3>
+                    <div class="belong">明治大学 経営学部 4年</div>
+                </div>
+                <div class="card-content">
+                    <div class="pb-list">
+                        <strong>自己ベスト：</strong><br>
+                        5000m: 14分20秒72 / 10000m: 31分32秒91<br>
+                        ハーフマラソン: 1時間04分30秒
+                    </div>
+                    <div class="achievement-title">🏃‍♂️ 主な実績・駅伝記録</div>
+                    <ul class="achievement-list">
+                        <li>明治大学競走部で4年間主軸としてチームをリード。上尾シティハーフ等でも自己ベストを更新する勝負強さを発揮。</li>
+                        <li><span class="race-tag">関東インカレ</span> 男子1部 3000m障害（3000mSC）<br>予選 8分55秒70（2着・決勝進出）/ 決勝 8分54秒06（11位）<br>タフなレースで1部残留に向け貢献。</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
     </section>
 
